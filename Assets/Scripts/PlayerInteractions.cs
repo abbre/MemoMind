@@ -4,6 +4,12 @@ using System.Collections;
 
 public class PlayerInteractions : MonoBehaviour
 {
+
+    public AudioClip[] footstepSounds;
+    public float stepInterval = 0.5f;
+    private AudioSource audioSource;
+    private float stepTimer = 0f;
+
     public GameObject player;
     public Transform wakeUpPosition;
     public float fadeDuration = 1.0f;
@@ -14,8 +20,19 @@ public class PlayerInteractions : MonoBehaviour
     void Start()
     {
         blackScreen.gameObject.SetActive(false);
+        audioSource = GetComponent<AudioSource>();
     }
 
+    void Update()
+    {
+        if (IsMoving() && stepTimer <= 0f)
+        {
+            PlayRandomFootstepSound();
+            stepTimer = stepInterval;
+        }
+
+        stepTimer -= Time.deltaTime;
+    }
     void OnMouseDown()
     {
         if (!isSleeping && gameObject.CompareTag("Bed"))
@@ -58,5 +75,21 @@ public class PlayerInteractions : MonoBehaviour
         blackScreen.gameObject.SetActive(false);
         isSleeping = false;
         player.SetActive(true);
+    }
+
+    private bool IsMoving()
+    {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        return Mathf.Abs(horizontal) > 0.1f || Mathf.Abs(vertical) > 0.1f;
+    }
+
+    private void PlayRandomFootstepSound()
+    {
+        if (footstepSounds.Length == 0) return;
+
+        int randomIndex = Random.Range(0, footstepSounds.Length);
+        audioSource.clip = footstepSounds[randomIndex];
+        audioSource.Play();
     }
 }
