@@ -6,6 +6,8 @@ TagManager:
   tags:
   - PlayerText
   - Notes
+  - Day1
+  - Day2
   layers:
   - Default
   - TransparentFX
