@@ -6860,8 +6860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footstepSounds:
-  - {fileID: 8300000, guid: 04567a2148c11604a9d50a357a7cb819, type: 3}
-  - {fileID: 8300000, guid: b84b39b235402a4438e0c610858e5319, type: 3}
+  - {fileID: 8300000, guid: 51b106f4d24f4da438515b5dfc37c577, type: 3}
+  - {fileID: 8300000, guid: ea6f9ab933957f944938360ddebfb5cc, type: 3}
   stepInterval: 0.5
   player: {fileID: 932451206}
   wakeUpPosition: {fileID: 1689919808}
