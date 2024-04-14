@@ -21,6 +21,7 @@ public class showPlayerText : MonoBehaviour
         _collider = GetComponent<Collider>();
         playerText.SetActive(false);
         interactionIcon.SetActive(false); // 初始隐藏交互图标
+        mainCamera = GameManager.Camera;
     }
 
     void Update()
