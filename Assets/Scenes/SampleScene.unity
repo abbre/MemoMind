@@ -2243,15 +2243,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 374329170}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.49994758, y: 0.50005245, z: 0.50005245, w: -0.49994758}
-  m_LocalPosition: {x: -3.224, y: 1.99, z: 2.844}
+  m_LocalRotation: {x: 0.5002465, y: 0.49975336, z: 0.5003513, w: -0.49964845}
+  m_LocalPosition: {x: -3.224698, y: 1.990015, z: 2.8440003}
   m_LocalScale: {x: 34.7352, y: 11.5, z: 24}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1396526027}
   - {fileID: 328261961}
   m_Father: {fileID: 1465569333}
-  m_LocalEulerAnglesHint: {x: -90, y: 180, z: 89.988}
+  m_LocalEulerAnglesHint: {x: -90.069, y: 180, z: 89.919}
 --- !u!33 &374329172
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2338,7 +2338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerText: {fileID: 569107950}
   interactionIcon: {fileID: 328261960}
-  interactionDistance: 1.5
+  interactionDistance: 3
   mainCamera: {fileID: 330585545}
 --- !u!1001 &376564889
 PrefabInstance:
@@ -4421,7 +4421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerText: {fileID: 1198368614}
   interactionIcon: {fileID: 1470287372}
-  interactionDistance: 1.5
+  interactionDistance: 2.5
   mainCamera: {fileID: 330585545}
 --- !u!64 &702579832
 MeshCollider:
