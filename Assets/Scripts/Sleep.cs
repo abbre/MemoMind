@@ -1,55 +1,75 @@
-
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Sleep : MonoBehaviour
 {
-    public Camera mainCamera;  // 主摄像机
-    public Camera sleepCamera;  // 第二摄像机
-    public float transitionSpeed = 1.0f;  // 过渡速度
-    public float transitionThreshold = 0.05f;  // 过渡阈值
+  
+// Start is called before the first frame update
+    public GameObject interactionIcon; // 交互图标
+    public float interactionDistance = 3f; // 相机检测距离
 
-    private Transform _mainCameraPos;
-    private bool isSwitching = false;
-    private bool _ePressed = false;
-    private Vector3 _targetPosition;
-    private Quaternion _targetRotation;
+    public Camera mainCamera;
+    public Camera SleepCamera;
+    private bool _Eshowed = false;
 
-    private void OnEnable()
+    private Collider _collider;
+
+    public Image blackScreen;
+
+    void OnEnable()
     {
-        sleepCamera.enabled = false;
+        SleepCamera.enabled = false;
+    }
+
+    void Start()
+    {
+        _collider = GetComponent<Collider>();
+        interactionIcon.SetActive(false); // 初始隐藏交互图标
+        mainCamera = GameManager.Camera;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && !_ePressed)
+        RaycastHit hit;
+        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)); // 从屏幕中心发出射线
+
+        if (Physics.Raycast(ray, out hit, interactionDistance))
         {
-            _ePressed = true;
-            isSwitching = true;
-            mainCamera.enabled = false;
-            sleepCamera.enabled = true;
-            _mainCameraPos = mainCamera.transform;
-            _targetPosition = _mainCameraPos.position;
-            _targetRotation = _mainCameraPos.rotation;
+            // 如果射线击中了可以交互的物体
+            if (hit.collider == _collider)
+            {
+                if (!_Eshowed)
+                {
+                    interactionIcon.SetActive(true);
+                    _Eshowed = true;
+                }
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    mainCamera.enabled = false;
+                    SleepCamera.enabled = true;
+                    interactionIcon.SetActive(false);
+                    _Eshowed = false;
+                }
+            }
+            else
+            {
+                // 如果射线没有击中任何物体，隐藏交互图标
+                interactionIcon.SetActive(false);
+                _Eshowed = false;
+            }
         }
 
-        if (isSwitching)
+        if (SleepCamera.enabled)
         {
-            SwitchCamera();
+            // 逐渐增加遮罩的透明度
+            Color currentColor = blackScreen.color;
+            currentColor.a += Time.deltaTime * 0.5f; 
+            blackScreen.color = currentColor;
         }
-    }
 
-    void SwitchCamera()
-    {
-        // 平滑过渡效果
-        sleepCamera.transform.position = Vector3.Lerp(sleepCamera.transform.position, _targetPosition, transitionSpeed * Time.deltaTime);
-        sleepCamera.transform.rotation = Quaternion.Lerp(sleepCamera.transform.rotation, _targetRotation, transitionSpeed * Time.deltaTime);
-
-        // 检查是否接近目标位置和旋转
-        if (Vector3.Distance(sleepCamera.transform.position, _targetPosition) < transitionThreshold &&
-            Quaternion.Angle(sleepCamera.transform.rotation, _targetRotation) < transitionThreshold)
-        {
-            // 停止过渡
-            isSwitching = false;
-        }
     }
 }

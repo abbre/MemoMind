@@ -11,15 +11,15 @@ public class PlayerInteractions : MonoBehaviour
     private float stepTimer = 0f;
 
     public GameObject player;
-    public Transform wakeUpPosition;
+   // public Transform wakeUpPosition;
     public float fadeDuration = 1.0f;
-    public Image blackScreen;
+    //public Image blackScreen;
 
     private bool isSleeping = false;
 
     void Start()
     {
-        blackScreen.gameObject.SetActive(false);
+        //blackScreen.gameObject.SetActive(false);
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -33,6 +33,8 @@ public class PlayerInteractions : MonoBehaviour
 
         stepTimer -= Time.deltaTime;
     }
+    
+    /*
     void OnMouseDown()
     {
         if (!isSleeping && gameObject.CompareTag("Bed"))
@@ -75,7 +77,8 @@ public class PlayerInteractions : MonoBehaviour
         blackScreen.gameObject.SetActive(false);
         isSleeping = false;
         player.SetActive(true);
-    }
+    }  
+*/
 
     private bool IsMoving()
     {

@@ -169,7 +169,6 @@ public class FirstPersonController : MonoBehaviour
         #region Sprint Bar
 
         sprintBarCG = GetComponentInChildren<CanvasGroup>();
-        
 
         if(useSprintBar)
         {
