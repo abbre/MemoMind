@@ -15964,6 +15964,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4459864850019384736, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384737, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
       propertyPath: m_Height
@@ -77943,7 +77948,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9239df0ef1e587e4f9db136556ac922d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bedInteractionScript: {fileID: 5904060471448503935}
 --- !u!23 &5906081157396698204
 MeshRenderer:
   m_ObjectHideFlags: 0

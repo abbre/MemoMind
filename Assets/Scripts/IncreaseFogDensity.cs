@@ -15,7 +15,6 @@ public class IncreaseFogDensity : MonoBehaviour
             sceneSwitcher.switchScene = true;
             enabled = false; // 停用脚本
             
-            
         }
     }
 }
