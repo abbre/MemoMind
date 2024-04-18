@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1962638756}
-  m_IndirectSpecularColor: {r: 0.25330302, g: 0.21698889, b: 0.23319246, a: 1}
+  m_IndirectSpecularColor: {r: 0.5821348, g: 0.43043727, b: 0.34909177, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -605,6 +605,7 @@ GameObject:
   - component: {fileID: 372168227}
   - component: {fileID: 372168226}
   - component: {fileID: 372168228}
+  - component: {fileID: 372168229}
   m_Layer: 0
   m_Name: eventManager
   m_TagString: Untagged
@@ -648,12 +649,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372168225}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c6f2a1ba9f25b5498a96a145cf62225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   increaseSpeed: 0.4
+  sceneSwitcher: {fileID: 372168229}
+--- !u!114 &372168229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372168225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a21f0aa97729984c8c1f7f253ff0ab0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetSceneName: Day4
+  switchScene: 0
 --- !u!1 &382636301
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,6 +935,7 @@ MonoBehaviour:
   colorChangeSpeed: 0.4
   targetColor: {r: 0.3962264, g: 0, b: 0, a: 1}
   skyboxMaterial: {fileID: 2100000, guid: 0628ce624af4ba141af3a03b0d963cb2, type: 2}
+  sceneSwitcher: {fileID: 372168229}
 --- !u!4 &457990105
 Transform:
   m_ObjectHideFlags: 0
@@ -961,6 +978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increaseSpeed: 0.4
+  sceneSwitcher: {fileID: 0}
 --- !u!1001 &502330506
 PrefabInstance:
   m_ObjectHideFlags: 0

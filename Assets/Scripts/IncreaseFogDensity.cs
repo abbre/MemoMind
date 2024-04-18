@@ -3,7 +3,7 @@ using UnityEngine;
 public class IncreaseFogDensity : MonoBehaviour
 {
     public float increaseSpeed = 0.1f; // 增加速度
-
+    public SceneSwitcher sceneSwitcher;
     private void Update()
     {
         RenderSettings.fogDensity += increaseSpeed * Time.deltaTime;
@@ -12,7 +12,9 @@ public class IncreaseFogDensity : MonoBehaviour
         if (RenderSettings.fogDensity >= 1f)
         {
             RenderSettings.fogDensity = 1f;
+            sceneSwitcher.switchScene = true;
             enabled = false; // 停用脚本
+            
         }
     }
 }
