@@ -1,0 +1,11 @@
+Model Information:
+* title:	Peakeep 4 Alarm Clock
+* source:	https://sketchfab.com/3d-models/peakeep-4-alarm-clock-d2929d60de2940bba5f7d92170f01bc1
+* author:	xTomele (https://sketchfab.com/xtomele)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Peakeep 4 Alarm Clock" (https://sketchfab.com/3d-models/peakeep-4-alarm-clock-d2929d60de2940bba5f7d92170f01bc1) by xTomele (https://sketchfab.com/xtomele) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,12 +1,13 @@
 using System.Collections;
 using Febucci.UI.Core;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class DisappearAndEnable : MonoBehaviour
 {
     public float timeBeforeTextAppear = 2f;
     public TypewriterCore textAnimator;
-    public GameObject nextPlayerText;
+    [CanBeNull]public GameObject nextPlayerText;
     public bool hasNext = true; // 控制是否有下一个文字
 
     public void StartDisappearing()

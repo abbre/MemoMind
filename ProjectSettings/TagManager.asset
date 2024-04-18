@@ -8,6 +8,7 @@ TagManager:
   - Notes
   - Day1
   - Day2
+  - Step
   layers:
   - Default
   - TransparentFX

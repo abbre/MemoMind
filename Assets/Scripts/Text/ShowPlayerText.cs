@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class showPlayerText : MonoBehaviour
+public class ShowPlayerText : MonoBehaviour
 {
-    public GameObject playerText;
+    [CanBeNull] public GameObject playerText;
 
 // Start is called before the first frame update
     public GameObject interactionIcon; // 交互图标
@@ -37,14 +38,13 @@ public class showPlayerText : MonoBehaviour
                 if (!_Eshowed)
                 {
                     interactionIcon.SetActive(true);
-                    _Eshowed = true;
                 }
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     playerText.SetActive(true);
                     interactionIcon.SetActive(false);
-                    _Eshowed = false;
+                    _Eshowed = true;
                 }
             }
             else
