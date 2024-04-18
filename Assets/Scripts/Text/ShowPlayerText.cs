@@ -14,6 +14,7 @@ public class ShowPlayerText : MonoBehaviour
 
     public Camera mainCamera;
     private bool _Eshowed = false;
+    private bool _hasInteracted = false;
 
     private Collider _collider;
 
@@ -33,7 +34,7 @@ public class ShowPlayerText : MonoBehaviour
         if (Physics.Raycast(ray, out hit, interactionDistance))
         {
             // 如果射线击中了可以交互的物体
-            if (hit.collider == _collider)
+            if (hit.collider == _collider && !_hasInteracted)
             {
                 if (!_Eshowed)
                 {
@@ -45,6 +46,7 @@ public class ShowPlayerText : MonoBehaviour
                     playerText.SetActive(true);
                     interactionIcon.SetActive(false);
                     _Eshowed = true;
+                    _hasInteracted = true;
                 }
             }
             else
