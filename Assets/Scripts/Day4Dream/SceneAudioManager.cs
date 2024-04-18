@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-
+using System.Collections;
 public class SceneAudioManager : MonoBehaviour
 {
     public AudioClip[] audioClips; // 存储要播放的音频
@@ -10,6 +10,7 @@ public class SceneAudioManager : MonoBehaviour
 
     private AudioSource audioSource; // 用于播放音频的 AudioSource
     private int currentClipIndex = 0; // 当前播放的音频索引
+    private bool allClipsPlayed = false; // 标记所有音频是否已经播放完毕
 
     void Start()
     {
@@ -26,9 +27,14 @@ public class SceneAudioManager : MonoBehaviour
     void Update()
     {
         // 检测当前音频是否播放完毕，如果播放完毕，则播放下一个音频和相应的字幕
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && !allClipsPlayed)
         {
             PlayNextClip();
+        }
+        // 如果所有音频都已经播放完毕，则等待三秒后切换场景
+        else if (allClipsPlayed)
+        {
+            StartCoroutine(LoadNextSceneAfterDelay(3f));
         }
     }
 
@@ -39,6 +45,8 @@ public class SceneAudioManager : MonoBehaviour
         if (currentClipIndex >= audioClips.Length)
         {
             currentClipIndex = 0;
+            allClipsPlayed = true; // 设置标志为 true，表示所有音频已经播放完毕
+            return;
         }
 
         // 设置 AudioSource 的音频剪辑为当前索引对应的音频
@@ -56,24 +64,13 @@ public class SceneAudioManager : MonoBehaviour
         currentClipIndex++;
     }
 
-    // 当场景被加载时调用
-    void OnEnable()
+    // 加载下一个场景的协程
+    IEnumerator LoadNextSceneAfterDelay(float delay)
     {
-        // 监听场景加载完成事件
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
+        // 等待指定的时间
+        yield return new WaitForSeconds(delay);
 
-    // 当场景被销毁时调用
-    void OnDisable()
-    {
-        // 取消监听场景加载完成事件
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    // 当场景加载完成时调用
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // 在场景加载完成后重新开始播放音频
-        Start();
+        // 切换到下一个场景
+        SceneManager.LoadScene("ForestPark"); // 替换 "YourNextSceneName" 为你想要加载的下一个场景的名称
     }
 }

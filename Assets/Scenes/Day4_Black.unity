@@ -597,10 +597,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: 22b7ca18f796fba4d9b704c120d4138b, type: 3}
-  - {fileID: 8300000, guid: fa2b297f574246b4f977e46ec57b5feb, type: 3}
-  - {fileID: 8300000, guid: fa2b297f574246b4f977e46ec57b5feb, type: 3}
-  - {fileID: 8300000, guid: fa2b297f574246b4f977e46ec57b5feb, type: 3}
+  - {fileID: 8300000, guid: 634707e964711e74bb601dc7a2a5c63e, type: 3}
+  - {fileID: 8300000, guid: 341d2a7d52585a94fae836d4a5a6599f, type: 3}
+  - {fileID: 8300000, guid: 76902d0d4f06be34b98f4eb999043d4b, type: 3}
+  - {fileID: 8300000, guid: da6898e79b2cfe74f9bfecd5ea81e726, type: 3}
   subtitles:
   - Honey, wake up.
   - "It\u2019s a beautiful day outside. How about taking Emma out for a little outing
