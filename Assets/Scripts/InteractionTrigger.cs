@@ -2,6 +2,7 @@ using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
 
 public class InteractionTrigger : MonoBehaviour
@@ -16,8 +17,7 @@ public class InteractionTrigger : MonoBehaviour
     [Space(10)] [SerializeField] private bool triggerEventAfterAudio;
     [SerializeField] private bool triggerEventAfterAnimation;
     [SerializeField] private bool triggerEventAfterPressE;
-    
-
+    [SerializeField] private bool audioNeedsSubtitle;
     public bool banMovementDuringAudio = false;
     private bool _onActivated = false;
 
@@ -33,6 +33,7 @@ public class InteractionTrigger : MonoBehaviour
     [CanBeNull] public AudioClip AudioToStop;
 
     [CanBeNull] public GameObject PlayerText;
+    
 
     public Camera mainCamera;
     public float interactionDistance = 3.0f;
@@ -47,6 +48,8 @@ public class InteractionTrigger : MonoBehaviour
     private GameObject step;
     private AudioSource stepAudio;
 
+    [CanBeNull]public Subtitle subtitle;
+    [CanBeNull]public GameObject subtitleParent;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +58,10 @@ public class InteractionTrigger : MonoBehaviour
         _EIcon.SetActive(false);
         step = GameObject.Find("Step");
         stepAudio = step.GetComponent<AudioSource>();
+        
+        subtitleParent = GameObject.Find("Subtitles");
+        subtitle= subtitleParent.GetComponent<Subtitle>();
+        subtitle.enabled = false;
     }
 
     public void SetReadyToTrigger()
@@ -127,6 +134,12 @@ public class InteractionTrigger : MonoBehaviour
                         print("Start to play audio on " + gameObject.name);
                         AudioSource.clip = AudioToPlay;
                         AudioSource.Play();
+                        if (audioNeedsSubtitle)
+                        {
+                            subtitle.enabled = true;
+                            AudioSource.mute = true;
+                        }
+                       
                         if (triggerEventAfterAudio)
                             StartCoroutine(WaitForSetOtherTrigger(AudioSource.clip.length));
                     }
