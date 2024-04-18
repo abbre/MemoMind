@@ -19,11 +19,6 @@ public class Sleep : MonoBehaviour
 
     public Image blackScreen;
 
-    void OnEnable()
-    {
-        SleepCamera.enabled = false;
-    }
-
     void Start()
     {
         _collider = GetComponent<Collider>();
