@@ -14,8 +14,7 @@ public class PlayerInteractions : MonoBehaviour
    // public Transform wakeUpPosition;
     public float fadeDuration = 1.0f;
     //public Image blackScreen;
-
-    private bool isSleeping = false;
+    
 
     void Start()
     {

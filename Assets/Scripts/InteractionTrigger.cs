@@ -15,6 +15,8 @@ public class InteractionTrigger : MonoBehaviour
     public UnityEvent triggerNextInteraction;
     [Space(10)] [SerializeField] private bool triggerEventAfterAudio;
     [SerializeField] private bool triggerEventAfterAnimation;
+    [SerializeField] private bool triggerEventAfterPressE;
+    
 
     public bool banMovementDuringAudio = false;
     private bool _onActivated = false;
@@ -91,6 +93,11 @@ public class InteractionTrigger : MonoBehaviour
                         _EIcon.SetActive(false);
                         _Eshowed = true;
                         _hasInteracted = true;
+
+                        if (triggerEventAfterPressE)
+                        {
+                            triggerNextInteraction?.Invoke();
+                        }
                     }
                 }
                 else
