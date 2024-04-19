@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -33,7 +34,7 @@ public class InteractionTrigger : MonoBehaviour
     [CanBeNull] public AudioClip AudioToStop;
 
     [CanBeNull] public GameObject PlayerText;
-    
+
 
     public Camera mainCamera;
     public float interactionDistance = 3.0f;
@@ -48,20 +49,29 @@ public class InteractionTrigger : MonoBehaviour
     private GameObject step;
     private AudioSource stepAudio;
 
-    [CanBeNull]public Subtitle subtitle;
-    [CanBeNull]public GameObject subtitleParent;
+    [CanBeNull] public Subtitle subtitle;
+    [CanBeNull] public GameObject subtitleParent;
+
+    [SerializeField] private bool enableDoorAfterThisInteraction = false;
+    [HideInInspector] public bool enableDoorInteraction = false;
 
     // Start is called before the first frame update
+
+
+
     void Start()
     {
         _collider = GetComponent<Collider>();
         _EIcon.SetActive(false);
         step = GameObject.Find("Step");
         stepAudio = step.GetComponent<AudioSource>();
-        
-        subtitleParent = GameObject.Find("Subtitles");
-        subtitle= subtitleParent.GetComponent<Subtitle>();
-        subtitle.enabled = false;
+
+        if(subtitleParent != null)
+        {
+            subtitleParent = GameObject.Find("Subtitles");
+            subtitle = subtitleParent.GetComponent<Subtitle>();
+            subtitle.enabled = false;
+        }
     }
 
     public void SetReadyToTrigger()
@@ -105,6 +115,11 @@ public class InteractionTrigger : MonoBehaviour
                         {
                             triggerNextInteraction?.Invoke();
                         }
+
+                        if (enableDoorAfterThisInteraction) //如果该事件为门的触发事件
+                        {
+                            enableDoorInteraction = true; //该事件过后可以开门
+                        }
                     }
                 }
                 else
@@ -122,13 +137,13 @@ public class InteractionTrigger : MonoBehaviour
                         AudioSourceToStop.clip = AudioToStop;
                         AudioSourceToStop.Stop();
                     }
-                    
+
                     if (animator)
                         animator.SetTrigger("ExampleName");
 
                     if (PlayerText)
                         PlayerText.SetActive(true);
-                    
+
                     if (AudioSource != null)
                     {
                         print("Start to play audio on " + gameObject.name);
@@ -139,13 +154,14 @@ public class InteractionTrigger : MonoBehaviour
                             subtitle.enabled = true;
                             AudioSource.mute = true;
                         }
-                       
+
                         if (triggerEventAfterAudio)
                             StartCoroutine(WaitForSetOtherTrigger(AudioSource.clip.length));
                     }
 
                     _eventTrigger = false;
                 }
+
                 if (AudioSource != null)
                 {
                     if (AudioSource.isPlaying && banMovementDuringAudio)
@@ -169,6 +185,4 @@ public class InteractionTrigger : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         triggerNextInteraction?.Invoke();
     }
-    
-    
 }

@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class DoorOpenClose : MonoBehaviour
 {
@@ -10,6 +14,7 @@ public class DoorOpenClose : MonoBehaviour
     public float smooth = 2f; // 门旋转的平滑度
     public AudioClip openSound; // 开门声音
     public AudioClip closeSound; // 关门声音
+    public AudioClip noOpenDoorAudio; //有事没做语音
 
     public GameObject interactionIcon; // 交互图标
     public float interactionDistance = 3f; // 相机检测距离
@@ -22,12 +27,21 @@ public class DoorOpenClose : MonoBehaviour
 
     private Collider _collider;
 
+    [CanBeNull] public InteractionTrigger interactionTrigger;
+    [SerializeField] private bool doorCanOpenInitially = false;
+    private GameObject notYetFinishParent;
+    private TextMeshProUGUI notYetFinishSubtitle;
+
     void Start()
     {
         _collider = GetComponent<Collider>();
         interactionIcon.SetActive(false); // 初始隐藏交互图标
         _audioSource = GetComponent<AudioSource>();
+        notYetFinishParent = GameObject.Find("Didn'tFinish");
+        notYetFinishSubtitle = notYetFinishParent.GetComponent<TextMeshProUGUI>();
+        notYetFinishSubtitle.enabled = false;
     }
+
 
     void Update()
     {
@@ -47,19 +61,30 @@ public class DoorOpenClose : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (!_isOpen)
+                    
+                    if (doorCanOpenInitially || (interactionTrigger != null && interactionTrigger.enableDoorInteraction))
                     {
-                        // 门打开
-                        _targetRotation = Quaternion.Euler(0f, openAngle, 0f);
-                        PlaySound(openSound);
-                        _isOpen = true;
+                        if (!_isOpen)
+                        {
+                            // 门打开
+                            _targetRotation = Quaternion.Euler(0f, openAngle, 0f);
+                            PlaySound(openSound);
+                            _isOpen = true;
+                        }
+                        else
+                        {
+                            // 门关闭
+                            _targetRotation = Quaternion.Euler(0f, closeAngle, 0f);
+                            PlaySound(closeSound);
+                            _isOpen = false;
+                        }
                     }
                     else
                     {
-                        // 门关闭
-                        _targetRotation = Quaternion.Euler(0f, closeAngle, 0f);
-                        PlaySound(closeSound);
-                        _isOpen = false;
+                        if (!_audioSource.isPlaying) //没有播放时
+                        {
+                            _audioSource.PlayOneShot(noOpenDoorAudio);
+                        }
                     }
                 }
             }
@@ -71,10 +96,16 @@ public class DoorOpenClose : MonoBehaviour
             }
         }
 
+
+        if (interactionTrigger != null && !interactionTrigger.enableDoorInteraction)
+            notYetFinishSubtitle.enabled = _audioSource.isPlaying ? true : false;
+
+
         if (_isOpen)
         {
             // 门旋转的平滑处理
-            door.transform.rotation = Quaternion.Slerp(door.transform.rotation, _targetRotation, smooth * Time.deltaTime);
+            door.transform.rotation =
+                Quaternion.Slerp(door.transform.rotation, _targetRotation, smooth * Time.deltaTime);
 
             // 判断门是否已经到达目标角度
             if (Mathf.Approximately(Quaternion.Angle(door.transform.rotation, _targetRotation), 0f))

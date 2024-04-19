@@ -3783,6 +3783,140 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534392703}
   m_Mesh: {fileID: -603478835644340257, guid: cb07ca870cf1d5444b85ea4e3ee49a58, type: 3}
+--- !u!1 &536007313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 536007314}
+  - component: {fileID: 536007316}
+  - component: {fileID: 536007315}
+  m_Layer: 5
+  m_Name: Didn'tFinish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &536007314
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536007313}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2097789316}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 25}
+  m_SizeDelta: {x: 1828, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &536007315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536007313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: It seems like I forgot something I didn't finish......
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 44.75
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &536007316
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536007313}
+  m_CullTransparentMesh: 1
 --- !u!1 &540660109
 GameObject:
   m_ObjectHideFlags: 0
@@ -4892,7 +5026,7 @@ GameObject:
   - component: {fileID: 702579831}
   - component: {fileID: 702579832}
   m_Layer: 0
-  m_Name: food_kitchen
+  m_Name: TakeBreaks
   m_TagString: Notes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4907,7 +5041,7 @@ Transform:
   m_GameObject: {fileID: 702579827}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0007774516, y: 0.7063654, z: 0.7078462, w: 0.0010334332}
-  m_LocalPosition: {x: 2.549, y: 1.797, z: -6.937}
+  m_LocalPosition: {x: 2.549, y: 1.795, z: -6.937}
   m_LocalScale: {x: 34.7352, y: 15.4, z: 24}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5885,14 +6019,14 @@ RectTransform:
   m_GameObject: {fileID: 783417622}
   m_LocalRotation: {x: -2.5724397e-12, y: -1, z: 2.5724397e-12, w: -0.00010487436}
   m_LocalPosition: {x: 0, y: 0, z: 0.091}
-  m_LocalScale: {x: 0.06342464, y: 0.079543866, z: 0.010073206}
+  m_LocalScale: {x: 0.2450903, y: 0.24227907, z: 0.030681524}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 40602220084823836}
   m_LocalEulerAnglesHint: {x: 180, y: 270, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.329, y: 1.495}
+  m_AnchoredPosition: {x: -1.185, y: 1.58}
   m_SizeDelta: {x: 12.43858, y: 3.61202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &783417624
@@ -7303,16 +7437,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009577661}
-  m_LocalRotation: {x: 0.70664746, y: 0.023430822, z: -0.023433713, w: 0.70678943}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0285}
+  m_LocalRotation: {x: 0.73032033, y: 0.024162732, z: -0.022692217, w: 0.6823001}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0315}
   m_LocalScale: {x: 0.0009390698, y: 0.0011777289, z: 0.00016057893}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 702579828}
-  m_LocalEulerAnglesHint: {x: 90, y: 360, z: -3.798}
+  m_LocalEulerAnglesHint: {x: 93.89398, y: 360.146, z: -3.6539917}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0003, y: -0.0053}
+  m_AnchoredPosition: {x: -0.00092, y: -0.0059}
   m_SizeDelta: {x: 12.43858, y: 3.61202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1009577663
@@ -7335,7 +7469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Food left in the kitchen
+  m_text: Make sure to take breaks regularly.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a2dbcf9d3c5463f4888340e2ee8a4d77, type: 2}
   m_sharedMaterial: {fileID: -4464846597800055218, guid: a2dbcf9d3c5463f4888340e2ee8a4d77,
@@ -7399,7 +7533,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -4.153907, w: 0}
+  m_margin: {x: 0, y: 0, z: -6.213314, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -10841,9 +10975,12 @@ MonoBehaviour:
   smooth: 2
   openSound: {fileID: 8300000, guid: 7ad65480d33cde146b366ed831c455a7, type: 3}
   closeSound: {fileID: 0}
+  noOpenDoorAudio: {fileID: 0}
   interactionIcon: {fileID: 257324333}
   interactionDistance: 3
   mainCamera: {fileID: 1517741163}
+  interactionTrigger: {fileID: 0}
+  doorCanOpenInitially: 0
 --- !u!82 &1392223684
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11441,15 +11578,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470287372}
   m_LocalRotation: {x: 0.70664746, y: 0.023430822, z: -0.023433713, w: 0.70678943}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0338}
-  m_LocalScale: {x: 0.0026425926, y: 0.0033141922, z: 0.00045187768}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0355}
+  m_LocalScale: {x: 0.0029718599, y: 0.0037271406, z: 0.0005081817}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 702579828}
   m_LocalEulerAnglesHint: {x: 90, y: 360, z: -3.798}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00793, y: -0.0053}
+  m_AnchoredPosition: {x: 0.00731, y: -0.0053}
   m_SizeDelta: {x: 12.43858, y: 3.61202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1470287374
@@ -14890,6 +15027,8 @@ MonoBehaviour:
   firstPersonController: {fileID: 602108458}
   subtitle: {fileID: 0}
   subtitleParent: {fileID: 0}
+  enableDoorAfterThisInteraction: 1
+  enableDoorInteraction: 0
 --- !u!1 &1739914525
 GameObject:
   m_ObjectHideFlags: 0
@@ -16657,9 +16796,12 @@ MonoBehaviour:
   smooth: 2
   openSound: {fileID: 8300000, guid: 7ad65480d33cde146b366ed831c455a7, type: 3}
   closeSound: {fileID: 0}
+  noOpenDoorAudio: {fileID: 0}
   interactionIcon: {fileID: 727813692}
   interactionDistance: 3
   mainCamera: {fileID: 1517741163}
+  interactionTrigger: {fileID: 0}
+  doorCanOpenInitially: 0
 --- !u!82 &1991361863
 AudioSource:
   m_ObjectHideFlags: 0
@@ -17464,6 +17606,7 @@ RectTransform:
   m_Children:
   - {fileID: 1387302091}
   - {fileID: 1592924497}
+  - {fileID: 536007314}
   m_Father: {fileID: 1311472473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -31299,6 +31442,8 @@ MonoBehaviour:
   firstPersonController: {fileID: 602108458}
   subtitle: {fileID: 0}
   subtitleParent: {fileID: 0}
+  enableDoorAfterThisInteraction: 0
+  enableDoorInteraction: 0
 --- !u!82 &1210884267135677544
 AudioSource:
   m_ObjectHideFlags: 0
@@ -51985,9 +52130,12 @@ MonoBehaviour:
   smooth: 2
   openSound: {fileID: 8300000, guid: 7ad65480d33cde146b366ed831c455a7, type: 3}
   closeSound: {fileID: 0}
+  noOpenDoorAudio: {fileID: 8300000, guid: f752b1d71b42bed4dbe8d54e2c926c95, type: 3}
   interactionIcon: {fileID: 783417622}
   interactionDistance: 3
   mainCamera: {fileID: 1517741163}
+  interactionTrigger: {fileID: 1714111622}
+  doorCanOpenInitially: 0
 --- !u!82 &3264650260540345579
 AudioSource:
   m_ObjectHideFlags: 0
@@ -54347,7 +54495,7 @@ MonoBehaviour:
   triggerEventAfterAnimation: 0
   triggerEventAfterPressE: 0
   audioNeedsSubtitle: 1
-  banMovementDuringAudio: 1
+  banMovementDuringAudio: 0
   animator: {fileID: 0}
   AudioSource: {fileID: 3469287836783267572}
   AudioSourceToStop: {fileID: 0}
@@ -54359,6 +54507,8 @@ MonoBehaviour:
   firstPersonController: {fileID: 602108458}
   subtitle: {fileID: 1592924500}
   subtitleParent: {fileID: 1592924496}
+  enableDoorAfterThisInteraction: 0
+  enableDoorInteraction: 0
 --- !u!64 &3469287836783267574
 MeshCollider:
   m_ObjectHideFlags: 0
