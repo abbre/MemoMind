@@ -5026,7 +5026,7 @@ GameObject:
   - component: {fileID: 702579831}
   - component: {fileID: 702579832}
   m_Layer: 0
-  m_Name: food_kitchen
+  m_Name: TakeBreaks
   m_TagString: Notes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5041,7 +5041,7 @@ Transform:
   m_GameObject: {fileID: 702579827}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0007774516, y: 0.7063654, z: 0.7078462, w: 0.0010334332}
-  m_LocalPosition: {x: 2.549, y: 1.797, z: -6.937}
+  m_LocalPosition: {x: 2.549, y: 1.795, z: -6.937}
   m_LocalScale: {x: 34.7352, y: 15.4, z: 24}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6019,14 +6019,14 @@ RectTransform:
   m_GameObject: {fileID: 783417622}
   m_LocalRotation: {x: -2.5724397e-12, y: -1, z: 2.5724397e-12, w: -0.00010487436}
   m_LocalPosition: {x: 0, y: 0, z: 0.091}
-  m_LocalScale: {x: 0.06342464, y: 0.079543866, z: 0.010073206}
+  m_LocalScale: {x: 0.2450903, y: 0.24227907, z: 0.030681524}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 40602220084823836}
   m_LocalEulerAnglesHint: {x: 180, y: 270, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.329, y: 1.495}
+  m_AnchoredPosition: {x: -1.185, y: 1.58}
   m_SizeDelta: {x: 12.43858, y: 3.61202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &783417624
@@ -7437,16 +7437,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009577661}
-  m_LocalRotation: {x: 0.70664746, y: 0.023430822, z: -0.023433713, w: 0.70678943}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0285}
+  m_LocalRotation: {x: 0.73032033, y: 0.024162732, z: -0.022692217, w: 0.6823001}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0315}
   m_LocalScale: {x: 0.0009390698, y: 0.0011777289, z: 0.00016057893}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 702579828}
-  m_LocalEulerAnglesHint: {x: 90, y: 360, z: -3.798}
+  m_LocalEulerAnglesHint: {x: 93.89398, y: 360.146, z: -3.6539917}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0003, y: -0.0053}
+  m_AnchoredPosition: {x: -0.00092, y: -0.0059}
   m_SizeDelta: {x: 12.43858, y: 3.61202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1009577663
@@ -7469,7 +7469,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: Make sure to take breaks regularly.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a2dbcf9d3c5463f4888340e2ee8a4d77, type: 2}
   m_sharedMaterial: {fileID: -4464846597800055218, guid: a2dbcf9d3c5463f4888340e2ee8a4d77,
@@ -7533,7 +7533,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -4.153907, w: 0}
+  m_margin: {x: 0, y: 0, z: -6.213314, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -10980,7 +10980,7 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 1517741163}
   interactionTrigger: {fileID: 0}
-  doorCanOpen: 0
+  doorCanOpenInitially: 0
 --- !u!82 &1392223684
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11578,15 +11578,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1470287372}
   m_LocalRotation: {x: 0.70664746, y: 0.023430822, z: -0.023433713, w: 0.70678943}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0338}
-  m_LocalScale: {x: 0.0026425926, y: 0.0033141922, z: 0.00045187768}
+  m_LocalPosition: {x: 0, y: 0, z: 0.0355}
+  m_LocalScale: {x: 0.0029718599, y: 0.0037271406, z: 0.0005081817}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 702579828}
   m_LocalEulerAnglesHint: {x: 90, y: 360, z: -3.798}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00793, y: -0.0053}
+  m_AnchoredPosition: {x: 0.00731, y: -0.0053}
   m_SizeDelta: {x: 12.43858, y: 3.61202}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1470287374
@@ -16801,7 +16801,7 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 1517741163}
   interactionTrigger: {fileID: 0}
-  doorCanOpen: 0
+  doorCanOpenInitially: 0
 --- !u!82 &1991361863
 AudioSource:
   m_ObjectHideFlags: 0
@@ -52135,7 +52135,7 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 1517741163}
   interactionTrigger: {fileID: 1714111622}
-  doorCanOpen: 0
+  doorCanOpenInitially: 0
 --- !u!82 &3264650260540345579
 AudioSource:
   m_ObjectHideFlags: 0
@@ -54495,7 +54495,7 @@ MonoBehaviour:
   triggerEventAfterAnimation: 0
   triggerEventAfterPressE: 0
   audioNeedsSubtitle: 1
-  banMovementDuringAudio: 1
+  banMovementDuringAudio: 0
   animator: {fileID: 0}
   AudioSource: {fileID: 3469287836783267572}
   AudioSourceToStop: {fileID: 0}
