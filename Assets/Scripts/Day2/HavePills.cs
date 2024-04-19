@@ -6,10 +6,23 @@ using System;
 
 public class HavePills : MonoBehaviour
 {
+    public Transform eatPillTransform;
+    public Transform pillPillTransform;
+    public FirstPersonController firstPersonController;
+
     public GameObject interactionIcon; // 交互图标
     public float interactionDistance = 3f; // 相机检测距离
-    
-    public static event Action EPressed;
+    private AudioSource stepAudio;
+
+    public float holdTime = 1.5f;
+
+    public GameObject pill;
+
+    public GameObject p1;
+    public GameObject p2;
+    private MeshRenderer pill1; // 将 pill1 和 pill2 定义为成员变量
+    private MeshRenderer pill2;
+
     public Camera mainCamera;
     private Collider _collider;
     private bool _Eshowed = false;
@@ -28,6 +41,7 @@ public class HavePills : MonoBehaviour
     private bool waiting = false;
     private float waitStartTime = 0f;
     private float waitDuration = 5f;
+    public GameObject step;
 
     void Start()
     {
@@ -36,7 +50,12 @@ public class HavePills : MonoBehaviour
         mainCamera = GameManager.Camera;
 
         audioSource = GetComponent<AudioSource>();
-        
+        stepAudio = step.GetComponent<AudioSource>();
+        pillPillTransform = pill.transform;
+
+        // 初始化成员变量 pill1 和 pill2
+        pill1 = p1.GetComponent<MeshRenderer>();
+        pill2 = p2.GetComponent<MeshRenderer>();
     }
 
     void Update()
@@ -55,14 +74,25 @@ public class HavePills : MonoBehaviour
                 }
 
                 if (Input.GetKeyDown(KeyCode.E))
-                {
+                {   
+                    pill1.enabled = true;
+                    pill2.enabled = true;
+
                     interactionIcon.SetActive(false);
 
                     audioSource.enabled = true;
 
                     audioSource.clip = eat; // 将 eat AudioClip 赋值给 audioSource.clip
                     audioSource.Play();
-            
+
+                    pill.transform.position = eatPillTransform.position;
+                    pill.transform.rotation = eatPillTransform.rotation;
+                    pill.transform.localScale = eatPillTransform.localScale;
+                    StartCoroutine(PillDisappear());
+                    firstPersonController.playerCanMove = false;
+                    firstPersonController.cameraCanMove = false;
+                    stepAudio.enabled = false;
+
                     _Eshowed = true;
                     
                     waiting = true;
@@ -100,6 +130,21 @@ public class HavePills : MonoBehaviour
             waiting = false;
             
         }
+    }
+
+    private IEnumerator PillDisappear()
+    {
+        yield return new WaitForSeconds(holdTime);
+        pill1.enabled = false;
+        pill2.enabled = false;
+        firstPersonController.playerCanMove = true;
+        firstPersonController.cameraCanMove = true;
+        stepAudio.enabled = true;
+
+        // Reset the pill's position, rotation, and scale
+        pill.transform.position = pillPillTransform.position;
+        pill.transform.rotation = pillPillTransform.rotation;
+        pill.transform.localScale = pillPillTransform.localScale;
     }
 
     IEnumerator TriggerBlackScreen()
