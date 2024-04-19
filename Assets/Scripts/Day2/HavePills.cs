@@ -19,11 +19,15 @@ public class HavePills : MonoBehaviour
 
     private int pillsTaken = 0;
     public List<AudioClip> reminderVoices; // 存储提醒语音
+    public AudioClip eat;
 
     public Image blackScreenImage; // 引用黑色的 Image 对象
     public float fadeDuration = 1.0f; // 渐变时间
 
     private int currentAudioIndex = 0; // 当前音频索引
+    private bool waiting = false;
+    private float waitStartTime = 0f;
+    private float waitDuration = 5f;
 
     void Start()
     {
@@ -56,13 +60,14 @@ public class HavePills : MonoBehaviour
 
                     audioSource.enabled = true;
 
-                    if (audioSource != null && !audioSource.isPlaying)
-                    {
-                        audioSource.Play();
-                    }
+                    audioSource.clip = eat; // 将 eat AudioClip 赋值给 audioSource.clip
+                    audioSource.Play();
+            
                     _Eshowed = true;
                     
-                    EPressed?.Invoke();
+                    waiting = true;
+                    waitStartTime = Time.time;
+                    Debug.Log("5f start.");
     
                     // 玩家吃药后增加药物计数
                     pillsTaken++;
@@ -80,6 +85,20 @@ public class HavePills : MonoBehaviour
                 interactionIcon.SetActive(false);
                 _Eshowed = false;
             }
+        }
+
+        if (waiting && (Time.time - waitStartTime >= waitDuration))
+        {  
+            Debug.Log("5f passed.");
+            audioSource.clip = reminderVoices[currentAudioIndex];
+            audioSource.Play();
+                
+            // 增加当前音频索引，并确保它在列表长度范围内循环
+            currentAudioIndex = (currentAudioIndex + 1) % reminderVoices.Count;
+
+            // 重置等待状态
+            waiting = false;
+            
         }
     }
 
