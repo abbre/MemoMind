@@ -24,7 +24,7 @@ public class InteractionTrigger : MonoBehaviour
     private bool _onActivated = false;
 
 
-    [Header("EventComponents")] [Space(10)] [Header("Monologue")] [CanBeNull]
+    [Header("EventComponents for Main Interaction")] [Space(10)] [Header("Monologue")] [CanBeNull]
     public GameObject PlayerText;
 
 
@@ -69,8 +69,7 @@ public class InteractionTrigger : MonoBehaviour
         _EIcon.SetActive(false);
         step = GameObject.Find("Step");
         stepAudio = step.GetComponent<AudioSource>();
-        if (needSubtitle)
-            subtitle.enabled = false;
+        
     }
 
     public void SetReadyToTrigger()
@@ -154,7 +153,7 @@ public class InteractionTrigger : MonoBehaviour
                     }
 
                     if (needSubtitle)
-                        subtitle.enabled = true;
+                        subtitle.ActivateSubtitle();
 
 
                     _eventTrigger = false;

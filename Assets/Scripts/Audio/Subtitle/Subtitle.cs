@@ -13,10 +13,12 @@ public class Subtitle : MonoBehaviour
 
     private AudioSource audioSource; // 用于播放音频的 AudioSource
     private int currentClipIndex = 0; // 当前播放的音频索引
-    public bool allClipsPlayed = false; // 标记所有音频是否已经播放完毕
+    [HideInInspector] public bool allClipsPlayed = false; // 标记所有音频是否已经播放完毕
     private bool _firstAudioPlayed = false;
-    [CanBeNull] [SerializeField] private float timeBeforeFirstAudioIsPlayed;
-   
+
+    [SerializeField] private bool subtitlePlayAtBeginning;
+    [SerializeField] private float timeBeforeFirstAudioIsPlayed;
+
     void Start()
     {
         // 获取 AudioSource 组件
@@ -24,16 +26,32 @@ public class Subtitle : MonoBehaviour
 
         // 重置当前音频索引为0，以确保每次游戏开始时都从第一个音频开始播放
         currentClipIndex = 0;
+        
+      
+          if(subtitlePlayAtBeginning)
+              ActivateSubtitle();
+    
 
+    }
+
+    
+    public void ActivateSubtitle()
+    {
         if (timeBeforeFirstAudioIsPlayed > 0f)
         {
             StartCoroutine(CountDownPlayFirstAudio());
         }
         else
         {
+            timeBeforeFirstAudioIsPlayed = 0f;
+            StartCoroutine(CountDownPlayFirstAudio());
             PlayNextClip();
         }
     }
+    
+    
+    
+    
 
     private IEnumerator CountDownPlayFirstAudio()
     {
@@ -44,7 +62,7 @@ public class Subtitle : MonoBehaviour
 
     void Update()
     {
-        if(_firstAudioPlayed)
+        if (_firstAudioPlayed)
         {
             // 检测当前音频是否播放完毕，如果播放完毕，则播放下一个音频和相应的字幕
             if (!audioSource.isPlaying && !allClipsPlayed)

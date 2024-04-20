@@ -10749,6 +10749,7 @@ MonoBehaviour:
   - Bye Granpa!
   subtitleText: {fileID: 1387302094}
   allClipsPlayed: 0
+  subtitlePlayAtBeginning: 1
   timeBeforeFirstAudioIsPlayed: 5
 --- !u!114 &1387302094
 MonoBehaviour:
@@ -14148,7 +14149,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1592924496}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71fec114ff0fb634d9e0c9adebf49cc3, type: 3}
   m_Name: 
@@ -14172,7 +14173,8 @@ MonoBehaviour:
   - 'Thank you, appreciate your help. '
   subtitleText: {fileID: 1592924501}
   allClipsPlayed: 0
-  timeBeforeFirstAudioIsPlayed: 0
+  subtitlePlayAtBeginning: 0
+  timeBeforeFirstAudioIsPlayed: 0.1
 --- !u!114 &1592924501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54509,7 +54511,7 @@ MonoBehaviour:
   banMovementDuringAudio: 0
   AudioSource: {fileID: 3469287836783267572}
   AudioSourceToStop: {fileID: 0}
-  AudioToPlay: {fileID: 8300000, guid: 1fada180c02d3ce489a6969b5a2c348f, type: 3}
+  AudioToPlay: {fileID: 0}
   AudioToStop: {fileID: 0}
   needSubtitle: 1
   banMovementDuringSubtitle: 1
