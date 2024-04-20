@@ -26,14 +26,14 @@ public class TakePills : MonoBehaviour
 
     public void HoldPill()
     {
+        firstPersonController.playerCanMove = false;
+        firstPersonController.cameraCanMove = false;
         transform.position = eatPillTransform.position;
         transform.rotation = eatPillTransform.rotation;
         transform.localScale = eatPillTransform.localScale;
+    
         StartCoroutine(PillDisappear());
-        firstPersonController.playerCanMove = false;
-        firstPersonController.cameraCanMove = false;
         stepAudio.enabled = false;
-
         swallowAudio.PlayOneShot(swallowAudio.clip);
     }
 
