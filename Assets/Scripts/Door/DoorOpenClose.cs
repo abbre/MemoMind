@@ -29,17 +29,21 @@ public class DoorOpenClose : MonoBehaviour
 
     [CanBeNull] public InteractionTrigger interactionTrigger;
     [SerializeField] private bool doorCanOpenInitially = false;
-    private GameObject notYetFinishParent;
-    private TextMeshProUGUI notYetFinishSubtitle;
+    [CanBeNull]private GameObject notYetFinishParent;
+    [CanBeNull]private TextMeshProUGUI notYetFinishSubtitle;
 
     void Start()
     {
         _collider = GetComponent<Collider>();
         interactionIcon.SetActive(false); // 初始隐藏交互图标
         _audioSource = GetComponent<AudioSource>();
-        notYetFinishParent = GameObject.Find("Didn'tFinish");
-        notYetFinishSubtitle = notYetFinishParent.GetComponent<TextMeshProUGUI>();
-        notYetFinishSubtitle.enabled = false;
+        if (!doorCanOpenInitially)
+        {
+            notYetFinishParent = GameObject.Find("Didn'tFinish");
+            notYetFinishSubtitle = notYetFinishParent.GetComponent<TextMeshProUGUI>();
+            notYetFinishSubtitle.enabled = false;
+        }
+       
     }
 
 

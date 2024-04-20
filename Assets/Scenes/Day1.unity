@@ -3319,7 +3319,7 @@ PrefabInstance:
     - target: {fileID: 3799794951525314639, guid: 46483a0c24448ec429c1e2b175a3acc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.2380195
+      value: 4.7520194
       objectReference: {fileID: 0}
     - target: {fileID: 3799794951525314639, guid: 46483a0c24448ec429c1e2b175a3acc3,
         type: 3}
@@ -10748,6 +10748,7 @@ MonoBehaviour:
   - Dad! I have to go to work, and Harper needs to go to school. Bye Dad!
   - Bye Granpa!
   subtitleText: {fileID: 1387302094}
+  allClipsPlayed: 0
   timeBeforeFirstAudioIsPlayed: 5
 --- !u!114 &1387302094
 MonoBehaviour:
@@ -14170,6 +14171,7 @@ MonoBehaviour:
   - I see, sir. Your bill has been sent to your email.
   - 'Thank you, appreciate your help. '
   subtitleText: {fileID: 1592924501}
+  allClipsPlayed: 0
   timeBeforeFirstAudioIsPlayed: 0
 --- !u!114 &1592924501
 MonoBehaviour:
@@ -14911,7 +14913,7 @@ PrefabInstance:
     - target: {fileID: 5749390869513834452, guid: 8d50eeed45ef801438e3e7f902742a2b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.114
+      value: 4.628
       objectReference: {fileID: 0}
     - target: {fileID: 5749390869513834452, guid: 8d50eeed45ef801438e3e7f902742a2b,
         type: 3}
@@ -15011,24 +15013,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerEventAfterAudio: 0
-  triggerEventAfterAnimation: 0
-  triggerEventAfterPressE: 1
-  audioNeedsSubtitle: 0
-  banMovementDuringAudio: 0
-  animator: {fileID: 0}
-  AudioSource: {fileID: 0}
-  AudioSourceToStop: {fileID: 0}
-  AudioToPlay: {fileID: 0}
-  AudioToStop: {fileID: 0}
+  triggerNextEventAfterAudioWithoutSubtitle: 0
+  triggerNextEventAfterSubtitle: 0
+  triggerNextEventAfterAnimation: 0
+  triggerNextEventAfterPressE: 1
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 1517741163}
   interactionDistance: 3
   firstPersonController: {fileID: 602108458}
+  needAudioWithoutSubtitle: 0
+  banMovementDuringAudio: 0
+  AudioSource: {fileID: 0}
+  AudioSourceToStop: {fileID: 0}
+  AudioToPlay: {fileID: 0}
+  AudioToStop: {fileID: 0}
+  needSubtitle: 0
+  banMovementDuringSubtitle: 0
   subtitle: {fileID: 0}
-  subtitleParent: {fileID: 0}
   enableDoorAfterThisInteraction: 1
   enableDoorInteraction: 0
+  animator: {fileID: 0}
 --- !u!1 &1739914525
 GameObject:
   m_ObjectHideFlags: 0
@@ -31426,24 +31430,26 @@ MonoBehaviour:
   triggerNextInteraction:
     m_PersistentCalls:
       m_Calls: []
-  triggerEventAfterAudio: 0
-  triggerEventAfterAnimation: 0
-  triggerEventAfterPressE: 0
-  audioNeedsSubtitle: 0
-  banMovementDuringAudio: 0
-  animator: {fileID: 0}
-  AudioSource: {fileID: 0}
-  AudioSourceToStop: {fileID: 1210884267135677544}
-  AudioToPlay: {fileID: 0}
-  AudioToStop: {fileID: 8300000, guid: 2a0bb8a3bf678a44592bf4ca9e0a0a50, type: 3}
+  triggerNextEventAfterAudioWithoutSubtitle: 0
+  triggerNextEventAfterSubtitle: 0
+  triggerNextEventAfterAnimation: 0
+  triggerNextEventAfterPressE: 0
   PlayerText: {fileID: 1743758264}
   mainCamera: {fileID: 1517741163}
   interactionDistance: 3
   firstPersonController: {fileID: 602108458}
+  needAudioWithoutSubtitle: 0
+  banMovementDuringAudio: 0
+  AudioSource: {fileID: 0}
+  AudioSourceToStop: {fileID: 1210884267135677544}
+  AudioToPlay: {fileID: 0}
+  AudioToStop: {fileID: 8300000, guid: 2a0bb8a3bf678a44592bf4ca9e0a0a50, type: 3}
+  needSubtitle: 0
+  banMovementDuringSubtitle: 0
   subtitle: {fileID: 0}
-  subtitleParent: {fileID: 0}
   enableDoorAfterThisInteraction: 0
   enableDoorInteraction: 0
+  animator: {fileID: 0}
 --- !u!82 &1210884267135677544
 AudioSource:
   m_ObjectHideFlags: 0
@@ -54491,24 +54497,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerEventAfterAudio: 1
-  triggerEventAfterAnimation: 0
-  triggerEventAfterPressE: 0
-  audioNeedsSubtitle: 1
-  banMovementDuringAudio: 0
-  animator: {fileID: 0}
-  AudioSource: {fileID: 3469287836783267572}
-  AudioSourceToStop: {fileID: 0}
-  AudioToPlay: {fileID: 8300000, guid: 1fada180c02d3ce489a6969b5a2c348f, type: 3}
-  AudioToStop: {fileID: 0}
+  triggerNextEventAfterAudioWithoutSubtitle: 0
+  triggerNextEventAfterSubtitle: 1
+  triggerNextEventAfterAnimation: 0
+  triggerNextEventAfterPressE: 0
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 1517741163}
   interactionDistance: 3
   firstPersonController: {fileID: 602108458}
+  needAudioWithoutSubtitle: 0
+  banMovementDuringAudio: 0
+  AudioSource: {fileID: 3469287836783267572}
+  AudioSourceToStop: {fileID: 0}
+  AudioToPlay: {fileID: 8300000, guid: 1fada180c02d3ce489a6969b5a2c348f, type: 3}
+  AudioToStop: {fileID: 0}
+  needSubtitle: 1
+  banMovementDuringSubtitle: 1
   subtitle: {fileID: 1592924500}
-  subtitleParent: {fileID: 1592924496}
   enableDoorAfterThisInteraction: 0
   enableDoorInteraction: 0
+  animator: {fileID: 0}
 --- !u!64 &3469287836783267574
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -87290,7 +87298,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6874758623329711243}
-  - component: {fileID: 6874758623329711244}
   m_Layer: 0
   m_Name: Alarm
   m_TagString: Untagged
@@ -90672,21 +90679,6 @@ Transform:
   - {fileID: 1210884267135677542}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -155.088}
---- !u!114 &6874758623329711244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6540294380500385472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3340fef9fc968ec49a1db7d52ecd6d67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  audioClip: {fileID: 8300000, guid: 2a0bb8a3bf678a44592bf4ca9e0a0a50, type: 3}
-  delayTime: 3
 --- !u!1 &6876387279607818416
 GameObject:
   m_ObjectHideFlags: 0
