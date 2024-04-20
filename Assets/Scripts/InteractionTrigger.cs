@@ -15,25 +15,17 @@ public class InteractionTrigger : MonoBehaviour
     [Header("Unity Event")] public UnityEvent onActivate;
     public UnityEvent mainInteraction;
     public UnityEvent triggerNextInteraction;
-    [Space(10)] [SerializeField] private bool triggerEventAfterAudio;
-    [SerializeField] private bool triggerEventAfterAnimation;
-    [SerializeField] private bool triggerEventAfterPressE;
-    [SerializeField] private bool audioNeedsSubtitle;
-    public bool banMovementDuringAudio = false;
+    [Space(10)] [SerializeField] private bool triggerNextEventAfterAudioWithoutSubtitle;
+    [SerializeField] private bool triggerNextEventAfterSubtitle;
+    [SerializeField] private bool triggerNextEventAfterAnimation;
+    [SerializeField] private bool triggerNextEventAfterPressE;
+
+
     private bool _onActivated = false;
 
 
-    [Header("EventComponents")] [CanBeNull]
-    public Animator animator;
-
-    [CanBeNull] public AudioSource AudioSource;
-    [CanBeNull] public AudioSource AudioSourceToStop;
-
-
-    [CanBeNull] public AudioClip AudioToPlay;
-    [CanBeNull] public AudioClip AudioToStop;
-
-    [CanBeNull] public GameObject PlayerText;
+    [Header("EventComponents")] [Space(10)] [Header("Monologue")] [CanBeNull]
+    public GameObject PlayerText;
 
 
     public Camera mainCamera;
@@ -49,14 +41,26 @@ public class InteractionTrigger : MonoBehaviour
     private GameObject step;
     private AudioSource stepAudio;
 
-    [CanBeNull] public Subtitle subtitle;
-    [CanBeNull] public GameObject subtitleParent;
+    [Header("Audios")] [SerializeField] private bool needAudioWithoutSubtitle;
+    public bool banMovementDuringAudio = false;
+    [CanBeNull] public AudioSource AudioSource;
+    [CanBeNull] public AudioSource AudioSourceToStop;
+    [CanBeNull] public AudioClip AudioToPlay;
+    [CanBeNull] public AudioClip AudioToStop;
 
-    [SerializeField] private bool enableDoorAfterThisInteraction = false;
+    [Header("Subtitles")] [SerializeField] private bool needSubtitle;
+    public bool banMovementDuringSubtitle = false;
+    [CanBeNull] [SerializeField] private Subtitle subtitle;
+    private bool _nextInteractionTriggered = false;
+
+    [Header("Doors")] [CanBeNull] [SerializeField]
+    private bool enableDoorAfterThisInteraction = false;
+
     [HideInInspector] public bool enableDoorInteraction = false;
 
-    // Start is called before the first frame update
+    [CanBeNull] [Header("Animation")] public Animator animator;
 
+    // Start is called before the first frame update
 
 
     void Start()
@@ -65,13 +69,8 @@ public class InteractionTrigger : MonoBehaviour
         _EIcon.SetActive(false);
         step = GameObject.Find("Step");
         stepAudio = step.GetComponent<AudioSource>();
-
-        if(subtitleParent != null)
-        {
-            subtitleParent = GameObject.Find("Subtitles");
-            subtitle = subtitleParent.GetComponent<Subtitle>();
+        if (needSubtitle)
             subtitle.enabled = false;
-        }
     }
 
     public void SetReadyToTrigger()
@@ -111,7 +110,7 @@ public class InteractionTrigger : MonoBehaviour
                         _Eshowed = true;
                         _hasInteracted = true;
 
-                        if (triggerEventAfterPressE)
+                        if (triggerNextEventAfterPressE)
                         {
                             triggerNextInteraction?.Invoke();
                         }
@@ -144,25 +143,25 @@ public class InteractionTrigger : MonoBehaviour
                     if (PlayerText)
                         PlayerText.SetActive(true);
 
-                    if (AudioSource != null)
+                    if (needAudioWithoutSubtitle)
                     {
                         print("Start to play audio on " + gameObject.name);
                         AudioSource.clip = AudioToPlay;
                         AudioSource.Play();
-                        if (audioNeedsSubtitle)
-                        {
-                            subtitle.enabled = true;
-                            AudioSource.mute = true;
-                        }
 
-                        if (triggerEventAfterAudio)
+                        if (triggerNextEventAfterAudioWithoutSubtitle)
                             StartCoroutine(WaitForSetOtherTrigger(AudioSource.clip.length));
                     }
+
+                    if (needSubtitle)
+                        subtitle.enabled = true;
+
 
                     _eventTrigger = false;
                 }
 
-                if (AudioSource != null)
+                //控制玩家在音频或者字幕时候的移动
+                if (needAudioWithoutSubtitle)
                 {
                     if (AudioSource.isPlaying && banMovementDuringAudio)
                     {
@@ -173,6 +172,30 @@ public class InteractionTrigger : MonoBehaviour
                     {
                         firstPersonController.playerCanMove = true;
                         stepAudio.enabled = true;
+                    }
+                }
+
+                if (needSubtitle)
+                {
+                    if (!subtitle.allClipsPlayed && banMovementDuringSubtitle)
+                    {
+                        firstPersonController.playerCanMove = false;
+                        stepAudio.enabled = false;
+                    }
+                    else
+                    {
+                        firstPersonController.playerCanMove = true;
+                        stepAudio.enabled = true;
+                    }
+
+                    if (subtitle.allClipsPlayed)
+                    {
+                        subtitle.enabled = false;
+                        if (triggerNextEventAfterSubtitle && !_nextInteractionTriggered)
+                        {
+                            triggerNextInteraction?.Invoke();
+                            _nextInteractionTriggered = true;
+                        }
                     }
                 }
             }

@@ -1,4 +1,5 @@
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,8 +9,11 @@ public class Wakeup : MonoBehaviour
     public Camera mainCamera;
     public Camera sleepCamera;
     public Image maskImage; // 遮罩的 Image UI 元素
-    public AudioClip wakeupSound; // 醒来时播放的音频4
-    public GameObject stepSound;
+    [CanBeNull]public AudioClip wakeupSound; // 醒来时播放的音频4
+    private AudioSource stepSound;
+
+    [SerializeField]private AudioClip footStep1;
+
 
     private bool audioEnd = false;
     private AudioSource audioSource;
@@ -18,11 +22,14 @@ public class Wakeup : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         StartCoroutine(FadeMask());
+
+        stepSound = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (audioEnd)
+        
+        if ((wakeupSound != null && audioEnd) || wakeupSound == null)
         {
             Color currentColor = maskImage.color;
             currentColor.a -= Time.deltaTime * 2f;
@@ -41,10 +48,15 @@ public class Wakeup : MonoBehaviour
         {
             audioSource.clip = wakeupSound;
             audioSource.Play();
+            yield return new WaitForSeconds(audioSource.clip.length - 1);
+        }
+        else
+        {
+            yield return new WaitForSeconds(2f);
         }
 
         // 等待音频播放结束
-        yield return new WaitForSeconds(audioSource.clip.length - 1);
+      
 
         audioEnd = true;
 
@@ -55,7 +67,7 @@ public class Wakeup : MonoBehaviour
         if (firstCameraController != null)
         {
             firstCameraController.SetActive(true);
-            stepSound.SetActive(true);
+            stepSound.PlayOneShot(footStep1);
         }
     }
 }

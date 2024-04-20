@@ -13,10 +13,10 @@ public class Subtitle : MonoBehaviour
 
     private AudioSource audioSource; // 用于播放音频的 AudioSource
     private int currentClipIndex = 0; // 当前播放的音频索引
-    private bool allClipsPlayed = false; // 标记所有音频是否已经播放完毕
+    [HideInInspector] public bool allClipsPlayed = false; // 标记所有音频是否已经播放完毕
 
     [CanBeNull] [SerializeField] private float timeBeforeFirstAudioIsPlayed;
-   
+
     void Start()
     {
         // 获取 AudioSource 组件
@@ -38,7 +38,6 @@ public class Subtitle : MonoBehaviour
     private IEnumerator CountDownPlayFirstAudio()
     {
         yield return new WaitForSeconds(timeBeforeFirstAudioIsPlayed);
-      
     }
 
     void Update()

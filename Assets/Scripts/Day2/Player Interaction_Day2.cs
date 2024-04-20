@@ -32,39 +32,9 @@ public class PlayerInteraction2 : MonoBehaviour
            objects.Add(child.gameObject);
         }
     }
+    
 
-    void Update()
-    {
-        RaycastHit hit;
-        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)); // 从屏幕中心发出射线
-
-        if (Physics.Raycast(ray, out hit, interactionDistance))
-        {
-            // 如果射线击中了可以交互的物体
-            if (hit.collider == _collider)
-            {
-                if (!_Eshowed)
-                {
-                    interactionIcon.SetActive(true);
-                    _Eshowed = true;
-                }
-
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    EatFruit();
-                    _Eshowed = false;
-                }
-            }
-            else
-            {
-                // 如果射线没有击中任何物体，隐藏交互图标
-                interactionIcon.SetActive(false);
-                _Eshowed = false;
-            }
-        }
-    }
-
-    void EatFruit()
+    public void EatFruit()
     {
         // 如果还有水果
         if (objects.Count > 0)
