@@ -3319,7 +3319,7 @@ PrefabInstance:
     - target: {fileID: 3799794951525314639, guid: 46483a0c24448ec429c1e2b175a3acc3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.2380195
+      value: 4.7520194
       objectReference: {fileID: 0}
     - target: {fileID: 3799794951525314639, guid: 46483a0c24448ec429c1e2b175a3acc3,
         type: 3}
@@ -14913,7 +14913,7 @@ PrefabInstance:
     - target: {fileID: 5749390869513834452, guid: 8d50eeed45ef801438e3e7f902742a2b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.114
+      value: 4.628
       objectReference: {fileID: 0}
     - target: {fileID: 5749390869513834452, guid: 8d50eeed45ef801438e3e7f902742a2b,
         type: 3}
@@ -15016,7 +15016,7 @@ MonoBehaviour:
   triggerNextEventAfterAudioWithoutSubtitle: 0
   triggerNextEventAfterSubtitle: 0
   triggerNextEventAfterAnimation: 0
-  triggerNextEventAfterPressE: 0
+  triggerNextEventAfterPressE: 1
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 1517741163}
   interactionDistance: 3
@@ -54498,7 +54498,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   triggerNextEventAfterAudioWithoutSubtitle: 0
-  triggerNextEventAfterSubtitle: 0
+  triggerNextEventAfterSubtitle: 1
   triggerNextEventAfterAnimation: 0
   triggerNextEventAfterPressE: 0
   PlayerText: {fileID: 0}
