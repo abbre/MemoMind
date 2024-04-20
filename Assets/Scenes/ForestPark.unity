@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1962638756}
-  m_IndirectSpecularColor: {r: 0.5280022, g: 0.3655798, b: 0.29685962, a: 1}
+  m_IndirectSpecularColor: {r: 0.35114625, g: 0.17454799, b: 0.14269717, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -656,7 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a21f0aa97729984c8c1f7f253ff0ab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneName: Day4
+  targetSceneName: Day4_PlayerTest
   switchScene: 0
 --- !u!82 &372168232
 AudioSource:
