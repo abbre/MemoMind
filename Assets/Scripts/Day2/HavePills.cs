@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using UnityEngine.Events;
 
 public class HavePills : MonoBehaviour
 {
@@ -43,6 +43,8 @@ public class HavePills : MonoBehaviour
     private float waitDuration = 5f;
     public GameObject step;
 
+
+
     [SerializeField] private GameObject[] TimeToTakePillText;
 
 
@@ -51,6 +53,7 @@ public class HavePills : MonoBehaviour
     [SerializeField] private bool readyToTrigger = false;
 
     private bool _triggerWhiteScreen = false;
+    public UnityEvent LoadScene;
 
     public void SetReadyToTrigger()
     {
@@ -171,6 +174,7 @@ public class HavePills : MonoBehaviour
 
         // 设置 Image 的颜色为完全不透明的白色
         whiteScreenImage.color = targetColor;
+        LoadScene.Invoke();
     }
 
     private IEnumerator PillDisappear()
