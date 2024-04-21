@@ -39,9 +39,12 @@ public class DoorOpenClose : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         if (!doorCanOpenInitially)
         {
-            notYetFinishParent = GameObject.Find("Didn'tFinish");
-            notYetFinishSubtitle = notYetFinishParent.GetComponent<TextMeshProUGUI>();
-            notYetFinishSubtitle.enabled = false;
+            if(notYetFinishParent)
+            {
+                notYetFinishParent = GameObject.Find("Didn'tFinish");
+                notYetFinishSubtitle = notYetFinishParent.GetComponent<TextMeshProUGUI>();
+                notYetFinishSubtitle.enabled = false;
+            }
         }
        
     }

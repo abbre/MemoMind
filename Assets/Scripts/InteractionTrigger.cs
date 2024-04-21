@@ -50,6 +50,7 @@ public class InteractionTrigger : MonoBehaviour
 
     [Header("Subtitles")] [SerializeField] private bool needSubtitle;
     public bool banMovementDuringSubtitle = false;
+    public bool banCameraRotationDuringSubtitle = false;
     [CanBeNull] [SerializeField] private Subtitle subtitle;
     private bool _nextInteractionTriggered = false;
 
@@ -69,7 +70,6 @@ public class InteractionTrigger : MonoBehaviour
         _EIcon.SetActive(false);
         step = GameObject.Find("Step");
         stepAudio = step.GetComponent<AudioSource>();
-        
     }
 
     public void SetReadyToTrigger()
@@ -164,11 +164,15 @@ public class InteractionTrigger : MonoBehaviour
                 {
                     if (AudioSource.isPlaying && banMovementDuringAudio)
                     {
+                        if (banCameraRotationDuringSubtitle)
+                            firstPersonController.cameraCanMove = false;
+
                         firstPersonController.playerCanMove = false;
                         stepAudio.enabled = false;
                     }
                     else
                     {
+                        firstPersonController.cameraCanMove = true;
                         firstPersonController.playerCanMove = true;
                         stepAudio.enabled = true;
                     }
@@ -176,9 +180,10 @@ public class InteractionTrigger : MonoBehaviour
 
                 if (needSubtitle)
                 {
-                    if (!subtitle.allClipsPlayed && banMovementDuringSubtitle)
+                    if (!subtitle.allClipsPlayed && banMovementDuringSubtitle && subtitle.firstAudioPlayed)
                     {
                         firstPersonController.playerCanMove = false;
+
                         stepAudio.enabled = false;
                     }
                     else

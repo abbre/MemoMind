@@ -18,6 +18,8 @@ public class ShowPlayerText : MonoBehaviour
 
     private Collider _collider;
 
+  
+
     void Start()
     {
         _collider = GetComponent<Collider>();
@@ -28,6 +30,8 @@ public class ShowPlayerText : MonoBehaviour
 
     void Update()
     {
+        
+           
         RaycastHit hit;
         Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)); // 从屏幕中心发出射线
 

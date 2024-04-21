@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class Wakeup : MonoBehaviour
 {
-    public GameObject firstCameraController;
+    public FirstPersonController firstPersonController;
     public Camera mainCamera;
     public Camera sleepCamera;
     public Image maskImage; // 遮罩的 Image UI 元素
-    [CanBeNull]public AudioClip wakeupSound; // 醒来时播放的音频4
-    private AudioSource stepSound;
-
-    [SerializeField]private AudioClip footStep1;
+    [CanBeNull] public AudioClip wakeupSound; // 醒来时播放的音频4
+    [SerializeField] private AudioSource stepSound;
+    private bool _cameraSwitched = false;
+    [SerializeField] private AudioClip footStep1;
 
 
     private bool audioEnd = false;
@@ -22,13 +22,13 @@ public class Wakeup : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         StartCoroutine(FadeMask());
-
-        stepSound = GetComponent<AudioSource>();
+        mainCamera.enabled = false;
+        firstPersonController.playerCanMove = false;
+     
     }
 
     void Update()
     {
-        
         if ((wakeupSound != null && audioEnd) || wakeupSound == null)
         {
             Color currentColor = maskImage.color;
@@ -56,7 +56,7 @@ public class Wakeup : MonoBehaviour
         }
 
         // 等待音频播放结束
-      
+
 
         audioEnd = true;
 
@@ -64,10 +64,12 @@ public class Wakeup : MonoBehaviour
         mainCamera.enabled = true;
         sleepCamera.enabled = false;
 
-        if (firstCameraController != null)
+
+        if (!_cameraSwitched)
         {
-            firstCameraController.SetActive(true);
+            firstPersonController.playerCanMove = true;
             stepSound.PlayOneShot(footStep1);
+            _cameraSwitched = true;
         }
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections;
 using JetBrains.Annotations;
+using UnityEngine.Events;
+
 
 public class Subtitle : MonoBehaviour
 {
@@ -11,30 +13,30 @@ public class Subtitle : MonoBehaviour
     public string[] subtitles; // 存储要显示的字幕
     public TextMeshProUGUI subtitleText; // 用于显示字幕的 TextMeshProUGUI 对象
 
-    private AudioSource audioSource; // 用于播放音频的 AudioSource
+    [SerializeField] private AudioSource audioSource; // 用于播放音频的 AudioSource
     private int currentClipIndex = 0; // 当前播放的音频索引
     [HideInInspector] public bool allClipsPlayed = false; // 标记所有音频是否已经播放完毕
-    private bool _firstAudioPlayed = false;
+    [HideInInspector] public bool firstAudioPlayed = false;
+
 
     [SerializeField] private bool subtitlePlayAtBeginning;
     [SerializeField] private float timeBeforeFirstAudioIsPlayed;
 
+    public UnityEvent afterSubtitle;
+    private bool _triggeredAfterSubtitleEvent = false;
+
+
     void Start()
     {
-        // 获取 AudioSource 组件
-        audioSource = GetComponent<AudioSource>();
-
         // 重置当前音频索引为0，以确保每次游戏开始时都从第一个音频开始播放
         currentClipIndex = 0;
-        
-      
-          if(subtitlePlayAtBeginning)
-              ActivateSubtitle();
-    
 
+
+        if (subtitlePlayAtBeginning)
+            ActivateSubtitle();
     }
 
-    
+
     public void ActivateSubtitle()
     {
         if (timeBeforeFirstAudioIsPlayed > 0f)
@@ -48,21 +50,18 @@ public class Subtitle : MonoBehaviour
             PlayNextClip();
         }
     }
-    
-    
-    
-    
+
 
     private IEnumerator CountDownPlayFirstAudio()
     {
         yield return new WaitForSeconds(timeBeforeFirstAudioIsPlayed);
         PlayNextClip();
-        _firstAudioPlayed = true;
+        firstAudioPlayed = true;
     }
 
     void Update()
     {
-        if (_firstAudioPlayed)
+        if (firstAudioPlayed)
         {
             // 检测当前音频是否播放完毕，如果播放完毕，则播放下一个音频和相应的字幕
             if (!audioSource.isPlaying && !allClipsPlayed)
@@ -73,6 +72,11 @@ public class Subtitle : MonoBehaviour
             if (allClipsPlayed)
             {
                 subtitleText.text = "";
+                if (!_triggeredAfterSubtitleEvent)
+                {
+                        afterSubtitle.Invoke();
+                    _triggeredAfterSubtitleEvent = true;
+                }
             }
         }
     }
