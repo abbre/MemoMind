@@ -25,6 +25,9 @@ public class Subtitle : MonoBehaviour
     public UnityEvent afterSubtitle;
     private bool _triggeredAfterSubtitleEvent = false;
 
+    [SerializeField] private bool enableDoorInteractionAfterSubtitle;
+    [HideInInspector] public bool enableDoorInteraction = false;
+
   
     void Start()
     {
@@ -72,6 +75,8 @@ public class Subtitle : MonoBehaviour
             if (allClipsPlayed)
             {
                 subtitleText.text = "";
+                if (enableDoorInteractionAfterSubtitle)
+                    enableDoorInteraction = true;
                 if (!_triggeredAfterSubtitleEvent)
                 {
                         afterSubtitle.Invoke();

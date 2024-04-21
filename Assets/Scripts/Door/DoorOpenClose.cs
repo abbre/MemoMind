@@ -28,6 +28,7 @@ public class DoorOpenClose : MonoBehaviour
     private Collider _collider;
 
     [CanBeNull] public InteractionTrigger interactionTrigger;
+    [CanBeNull] public Subtitle subtitle;
     [CanBeNull] [SerializeField] private TextMeshProUGUI notYetFinishSubtitle;
     [SerializeField] private bool doorCanOpenInitially = false;
  
@@ -65,7 +66,7 @@ public class DoorOpenClose : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     
-                    if (doorCanOpenInitially || (interactionTrigger != null && interactionTrigger.enableDoorInteraction))
+                    if (doorCanOpenInitially || (interactionTrigger != null && interactionTrigger.enableDoorInteraction) ||(subtitle != null &&subtitle.enableDoorInteraction))
                     {
                         if (!_isOpen)
                         {
