@@ -6,7 +6,7 @@ public class ChangeSkyboxColor : MonoBehaviour
     public Color targetColor = Color.red; // 目标颜色
     // public SceneSwitcher sceneSwitcher;
     public Material skyboxMaterial; // Skybox 材质
-    private Color originalColor; // 初始颜色
+    private Color _originalColor; // 初始颜色
     public SceneSwitcher sceneSwitcher;
     private void Start()
     {
@@ -21,7 +21,7 @@ public class ChangeSkyboxColor : MonoBehaviour
         }
 
         // 保存初始颜色
-        originalColor = skyboxMaterial.GetColor("_Tint");
+        _originalColor = skyboxMaterial.GetColor("_Tint");
     }
     
     private void Update()
@@ -33,7 +33,7 @@ public class ChangeSkyboxColor : MonoBehaviour
         skyboxMaterial.SetColor("_Tint", newColor);
         if (sceneSwitcher.switchScene == true)
         {
-            skyboxMaterial.SetColor("_Tint", originalColor);
+            skyboxMaterial.SetColor("_Tint", _originalColor);
         }
         
     }
