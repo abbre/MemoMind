@@ -38,7 +38,11 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1962638756}
+<<<<<<< Updated upstream
   m_IndirectSpecularColor: {r: 0.35114625, g: 0.17454799, b: 0.14269717, a: 1}
+=======
+  m_IndirectSpecularColor: {r: 0.5697149, g: 0.41341034, b: 0.33537918, a: 1}
+>>>>>>> Stashed changes
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -644,6 +648,23 @@ Transform:
   - {fileID: 395246756}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!114 &372168228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372168225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c6f2a1ba9f25b5498a96a145cf62225, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  increaseSpeed: 0.4
+  sceneSwitcher: {fileID: 372168229}
+>>>>>>> Stashed changes
 --- !u!114 &372168229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1159,6 +1180,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colorChangeSpeed: 0.4
   targetColor: {r: 0.3962264, g: 0, b: 0, a: 1}
+  colorChangeSpeed: 0.1
+  targetColor: {r: 0.46540874, g: 0, b: 0, a: 1}
   skyboxMaterial: {fileID: 2100000, guid: 0628ce624af4ba141af3a03b0d963cb2, type: 2}
   sceneSwitcher: {fileID: 372168229}
 --- !u!4 &457990105

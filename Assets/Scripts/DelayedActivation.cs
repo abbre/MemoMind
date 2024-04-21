@@ -9,19 +9,16 @@ public class DelayedActivation : MonoBehaviour
 
     void OnEnable()
     {
-        // 监听场景加载完成事件
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnDisable()
     {
-        // 取消监听场景加载完成事件
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // 开启协程进行延迟激活
         StartCoroutine(ActivateAfterDelay(delayTime));
     }
 

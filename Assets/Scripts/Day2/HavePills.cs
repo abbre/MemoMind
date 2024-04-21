@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using UnityEngine.Events;
 
 public class HavePills : MonoBehaviour
 {
@@ -34,7 +34,7 @@ public class HavePills : MonoBehaviour
     public List<AudioClip> reminderVoices; // 存储提醒语音
     public AudioClip eat;
 
-    public Image blackScreenImage; // 引用黑色的 Image 对象
+    public Image whiteScreenImage;
     public float fadeDuration = 1.0f; // 渐变时间
 
     private int currentAudioIndex = 0; // 当前音频索引
@@ -43,7 +43,17 @@ public class HavePills : MonoBehaviour
     private float waitDuration = 5f;
     public GameObject step;
 
+
+
+    [SerializeField] private GameObject[] TimeToTakePillText;
+
+
+    [SerializeField] private GameObject pillJar;
+
     [SerializeField] private bool readyToTrigger = false;
+
+    private bool _triggerWhiteScreen = false;
+    public UnityEvent LoadScene;
 
     public void SetReadyToTrigger()
     {
@@ -63,6 +73,10 @@ public class HavePills : MonoBehaviour
         // 初始化成员变量 pill1 和 pill2
         pill1 = p1.GetComponent<MeshRenderer>();
         pill2 = p2.GetComponent<MeshRenderer>();
+        foreach (GameObject textObject in TimeToTakePillText)
+        {
+            textObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -84,8 +98,22 @@ public class HavePills : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        pill1.enabled = true;
-                        pill2.enabled = true;
+                            pillsTaken++;
+
+                        if (pillsTaken < 5)
+                        {
+                            pill1.enabled = true;
+                            pill2.enabled = true;
+                            pill.transform.position = eatPillTransform.position;
+                            pill.transform.rotation = eatPillTransform.rotation;
+                            pill.transform.localScale = eatPillTransform.localScale;
+                            StartCoroutine(PillDisappear());
+                        }
+                        else
+                        {
+                            pill1.enabled = false;
+                            pill2.enabled = false;
+                        }
 
                         interactionIcon.SetActive(false);
 
@@ -94,27 +122,21 @@ public class HavePills : MonoBehaviour
                         audioSource.clip = eat; // 将 eat AudioClip 赋值给 audioSource.clip
                         audioSource.Play();
 
-                        pill.transform.position = eatPillTransform.position;
-                        pill.transform.rotation = eatPillTransform.rotation;
-                        pill.transform.localScale = eatPillTransform.localScale;
-                        StartCoroutine(PillDisappear());
+
                         firstPersonController.playerCanMove = false;
                         firstPersonController.cameraCanMove = false;
                         stepAudio.enabled = false;
 
                         _Eshowed = true;
 
-                        waiting = true;
                         waitStartTime = Time.time;
-                        Debug.Log("5f start.");
 
                         // 玩家吃药后增加药物计数
-                        pillsTaken++;
+
                         // 检查是否已经吃了五次药物
-                        if (pillsTaken >= 5)
+                        if (pillsTaken == 5)
                         {
-                            // 触发黑屏效果或其他你想要的动作
-                            StartCoroutine(TriggerBlackScreen());
+                            StartCoroutine(takePillJar());
                         }
                     }
                 }
@@ -125,26 +147,40 @@ public class HavePills : MonoBehaviour
                     _Eshowed = false;
                 }
             }
-
-            if (waiting && (Time.time - waitStartTime >= waitDuration))
-            {
-                Debug.Log("5f passed.");
-                audioSource.clip = reminderVoices[currentAudioIndex];
-                audioSource.Play();
-
-                // 增加当前音频索引，并确保它在列表长度范围内循环
-                currentAudioIndex = (currentAudioIndex + 1) % reminderVoices.Count;
-
-                // 重置等待状态
-                waiting = false;
-            }
         }
+    }
+
+
+    private IEnumerator takePillJar()
+    {
+        pillJar.transform.position = eatPillTransform.position;
+        yield return new WaitForSeconds(holdTime);
+        pillJar.SetActive(false);
+        firstPersonController.playerCanMove = true;
+        firstPersonController.cameraCanMove = true;
+        stepAudio.enabled = true;
+        float startTime = Time.time;
+        float duration = 1.0f; // 渐变时间
+        Color startColor = whiteScreenImage.color;
+        Color targetColor = new Color(1f, 1f, 1f, 1f); // 完全不透明的白色
+
+        while (Time.time - startTime < duration)
+        {
+            float elapsedTime = Time.time - startTime;
+            float t = Mathf.Clamp01(elapsedTime / duration);
+            whiteScreenImage.color = Color.Lerp(startColor, targetColor, t);
+            yield return null;
+        }
+
+        // 设置 Image 的颜色为完全不透明的白色
+        whiteScreenImage.color = targetColor;
+        LoadScene.Invoke();
     }
 
     private IEnumerator PillDisappear()
     {
         yield return new WaitForSeconds(holdTime);
-        
+
         pill1.enabled = false;
         pill2.enabled = false;
         firstPersonController.playerCanMove = true;
@@ -155,23 +191,19 @@ public class HavePills : MonoBehaviour
         pill.transform.position = pillPillTransform.position;
         pill.transform.rotation = pillPillTransform.rotation;
         pill.transform.localScale = pillPillTransform.localScale;
-    }
 
-    IEnumerator TriggerBlackScreen()
-    {
-        Debug.Log("Starting black screen effect.");
-        float startTime = Time.time;
-        float alpha = 0f;
-        while (alpha < 1f)
+        audioSource.clip = reminderVoices[currentAudioIndex];
+        audioSource.Play();
+
+        foreach (GameObject textObject in TimeToTakePillText)
         {
-            float elapsedTime = Time.time - startTime;
-            alpha = Mathf.Clamp01(elapsedTime / fadeDuration);
-            blackScreenImage.color = new Color(0f, 0f, 0f, alpha);
-            yield return null;
+            textObject.SetActive(false);
         }
 
-        // 设置 Image 的颜色为完全不透明
-        blackScreenImage.color = new Color(0f, 0f, 0f, 1f);
-        Debug.Log("Black screen effect finished.");
+        TimeToTakePillText[currentAudioIndex].SetActive(true);
+
+        // 增加当前音频索引，并确保它在列表长度范围内循环
+        currentAudioIndex = (currentAudioIndex + 1) % reminderVoices.Count;
     }
+    
 }

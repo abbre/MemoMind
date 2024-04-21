@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteraction2 : MonoBehaviour
+public class Eat : MonoBehaviour
 {
-    public GameObject interactionIcon; // 交互图标
-    public float interactionDistance = 3f; // 相机检测距离
 
-    public Camera mainCamera;
     private Collider _collider;
     private bool _Eshowed = false;
 
@@ -20,8 +17,7 @@ public class PlayerInteraction2 : MonoBehaviour
     {
         _collider = GetComponent<Collider>();
 
-        interactionIcon.SetActive(false); // 初始隐藏交互图标
-        mainCamera = GameManager.Camera;
+        //interactionIcon.SetActive(false); // 初始隐藏交互图标
     
         audioSource = GetComponent<AudioSource>();
 
@@ -34,7 +30,7 @@ public class PlayerInteraction2 : MonoBehaviour
     }
     
 
-    public void EatFruit()
+    public void EatDrink()
     {
         // 如果还有水果
         if (objects.Count > 0)
@@ -56,9 +52,6 @@ public class PlayerInteraction2 : MonoBehaviour
             }
         }
         
-        if (objects.Count == 0)
-        {
-            interactionIcon.SetActive(false);
-        }
+      
     }
 }

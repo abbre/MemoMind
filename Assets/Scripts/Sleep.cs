@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
-using UnityEngine.ProBuilder.MeshOperations;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Sleep : MonoBehaviour
 {
@@ -22,6 +20,8 @@ public class Sleep : MonoBehaviour
 
     public Image blackScreen;
     private bool _hasInteracted = false;
+
+    public UnityEvent loadScene;
 
     
     void Start()
@@ -75,10 +75,13 @@ public class Sleep : MonoBehaviour
 
             if (SleepCamera.enabled)
             {
-                // 逐渐增加遮罩的透明度
                 Color currentColor = blackScreen.color;
                 currentColor.a += Time.deltaTime * 0.5f;
                 blackScreen.color = currentColor;
+                if (currentColor.a >= 1.0f)
+                {
+                    loadScene.Invoke();
+                }
             }
         }
     }

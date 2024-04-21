@@ -25,7 +25,7 @@ public class Subtitle : MonoBehaviour
     public UnityEvent afterSubtitle;
     private bool _triggeredAfterSubtitleEvent = false;
 
-
+  
     void Start()
     {
         // 重置当前音频索引为0，以确保每次游戏开始时都从第一个音频开始播放

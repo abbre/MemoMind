@@ -32,7 +32,7 @@ public class Wakeup : MonoBehaviour
         if ((wakeupSound != null && audioEnd) || wakeupSound == null)
         {
             Color currentColor = maskImage.color;
-            currentColor.a -= Time.deltaTime * 2f;
+            currentColor.a -= Time.deltaTime * 1f;
             maskImage.color = currentColor;
 
             if (maskImage.color.a <= 0)

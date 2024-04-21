@@ -320,8 +320,8 @@ MonoBehaviour:
   m_text: How about GreenWood park? I miss us just sitting on that bench, watching
     people go by. We could spend the whole morning there.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a2dbcf9d3c5463f4888340e2ee8a4d77, type: 2}
-  m_sharedMaterial: {fileID: -4464846597800055218, guid: a2dbcf9d3c5463f4888340e2ee8a4d77,
+  m_fontAsset: {fileID: 11400000, guid: 1ffb8c3515fb6dc4688eff5a7e48200f, type: 2}
+  m_sharedMaterial: {fileID: 7453642021753212536, guid: 1ffb8c3515fb6dc4688eff5a7e48200f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
