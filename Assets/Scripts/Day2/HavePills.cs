@@ -42,13 +42,14 @@ public class HavePills : MonoBehaviour
     private float waitStartTime = 0f;
     private float waitDuration = 5f;
     public GameObject step;
-    
-    [SerializeField]private bool readyToTrigger = false;
+
+    [SerializeField] private bool readyToTrigger = false;
 
     public void SetReadyToTrigger()
     {
         readyToTrigger = true;
     }
+
     void Start()
     {
         _collider = GetComponent<Collider>();
@@ -136,7 +137,6 @@ public class HavePills : MonoBehaviour
 
                 // 重置等待状态
                 waiting = false;
-
             }
         }
     }
@@ -144,6 +144,7 @@ public class HavePills : MonoBehaviour
     private IEnumerator PillDisappear()
     {
         yield return new WaitForSeconds(holdTime);
+        
         pill1.enabled = false;
         pill2.enabled = false;
         firstPersonController.playerCanMove = true;
