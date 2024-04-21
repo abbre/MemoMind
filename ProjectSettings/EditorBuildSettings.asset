@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/ForestPark.unity
     guid: faf03eb0022646748b9b3760f5537df6
   - enabled: 1
+    path: Assets/Scenes/Day4_PlayerTest.unity
+    guid: dbf1aad59f119f94ea6249bee1d94734
+  - enabled: 1
     path: Assets/Scenes/Day2.unity
     guid: a91e43782b46ca244b0978a516e9e686
   - enabled: 1
