@@ -14,11 +14,12 @@ public class InteractionTrigger : MonoBehaviour
 
     [Header("Unity Event")] public UnityEvent onActivate;
     public UnityEvent mainInteraction;
-    public UnityEvent triggerNextInteraction;
+   
     [Space(10)] [SerializeField] private bool triggerNextEventAfterAudioWithoutSubtitle;
     [SerializeField] private bool triggerNextEventAfterSubtitle;
     [SerializeField] private bool triggerNextEventAfterAnimation;
     [SerializeField] private bool triggerNextEventAfterPressE;
+    public UnityEvent triggerNextInteraction;
 
 
     private bool _onActivated = false;
