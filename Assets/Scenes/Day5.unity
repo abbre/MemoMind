@@ -2002,7 +2002,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -6799,11 +6799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7ecf6d6050fcf4eb35afbbb79ed543, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 330585545}
-  walkSpeed: 3
-  lookSpeed: 2
-  lookXLimit: 45
-  canMove: 1
 --- !u!143 &932451208
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6864,9 +6859,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b84b39b235402a4438e0c610858e5319, type: 3}
   stepInterval: 0.5
   player: {fileID: 932451206}
-  wakeUpPosition: {fileID: 1689919808}
   fadeDuration: 1
-  blackScreen: {fileID: 1598769249}
 --- !u!81 &932451211
 AudioListener:
   m_ObjectHideFlags: 0
@@ -10297,9 +10290,13 @@ MonoBehaviour:
   smooth: 2
   openSound: {fileID: 8300000, guid: 7ad65480d33cde146b366ed831c455a7, type: 3}
   closeSound: {fileID: 0}
+  noOpenDoorAudio: {fileID: 0}
   interactionIcon: {fileID: 257324333}
   interactionDistance: 3
   mainCamera: {fileID: 330585545}
+  interactionTrigger: {fileID: 0}
+  notYetFinishSubtitle: {fileID: 0}
+  doorCanOpenInitially: 0
 --- !u!82 &1392223684
 AudioSource:
   m_ObjectHideFlags: 0
@@ -14960,9 +14957,13 @@ MonoBehaviour:
   smooth: 2
   openSound: {fileID: 8300000, guid: 7ad65480d33cde146b366ed831c455a7, type: 3}
   closeSound: {fileID: 0}
+  noOpenDoorAudio: {fileID: 0}
   interactionIcon: {fileID: 727813692}
   interactionDistance: 3
   mainCamera: {fileID: 330585545}
+  interactionTrigger: {fileID: 0}
+  notYetFinishSubtitle: {fileID: 0}
+  doorCanOpenInitially: 0
 --- !u!82 &1991361863
 AudioSource:
   m_ObjectHideFlags: 0
@@ -49776,9 +49777,13 @@ MonoBehaviour:
   smooth: 2
   openSound: {fileID: 8300000, guid: 7ad65480d33cde146b366ed831c455a7, type: 3}
   closeSound: {fileID: 0}
+  noOpenDoorAudio: {fileID: 0}
   interactionIcon: {fileID: 783417622}
   interactionDistance: 3
   mainCamera: {fileID: 330585545}
+  interactionTrigger: {fileID: 0}
+  notYetFinishSubtitle: {fileID: 0}
+  doorCanOpenInitially: 0
 --- !u!82 &3264650260540345579
 AudioSource:
   m_ObjectHideFlags: 0
