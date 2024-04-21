@@ -17,7 +17,7 @@ using UnityEngine.UI;
 public class FirstPersonController : MonoBehaviour
 {
     private Rigidbody rb;
-
+    public bool lockRotation;
     #region Camera Movement Variables
 
     public Camera playerCamera;
@@ -208,15 +208,19 @@ public class FirstPersonController : MonoBehaviour
         if(cameraCanMove)
         {
             yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
+            if(!lockRotation)
+            {
+                if (!invertCamera)
+                {
 
-            if (!invertCamera)
-            {
-                pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
-            }
-            else
-            {
-                // Inverted Y
-                pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
+                    pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
+                }
+                else
+                {
+                    // Inverted Y
+
+                    pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
+                }
             }
 
             // Clamp pitch between lookAngle
@@ -371,8 +375,10 @@ public class FirstPersonController : MonoBehaviour
         if (playerCanMove)
         {
             // Calculate how fast we should be moving
-            Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-
+            var targetVelocity = new Vector3();
+   
+                targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                
             // Checks if player is walking and isGrounded
             // Will allow head bob
             if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
@@ -553,6 +559,7 @@ public class FirstPersonController : MonoBehaviour
         GUILayout.Label("By Jess Case", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12 });
         GUILayout.Label("version 1.0.1", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12 });
         EditorGUILayout.Space();
+        fpc.lockRotation = EditorGUILayout.ToggleLeft(new GUIContent("lock y axis rotation"), fpc.lockRotation);
 
         #region Camera Setup
 
@@ -563,6 +570,7 @@ public class FirstPersonController : MonoBehaviour
         fpc.playerCamera = (Camera)EditorGUILayout.ObjectField(new GUIContent("Camera", "Camera attached to the controller."), fpc.playerCamera, typeof(Camera), true);
         fpc.fov = EditorGUILayout.Slider(new GUIContent("Field of View", "The camera’s view angle. Changes the player camera directly."), fpc.fov, fpc.zoomFOV, 179f);
         fpc.cameraCanMove = EditorGUILayout.ToggleLeft(new GUIContent("Enable Camera Rotation", "Determines if the camera is allowed to move."), fpc.cameraCanMove);
+        
 
         GUI.enabled = fpc.cameraCanMove;
         fpc.invertCamera = EditorGUILayout.ToggleLeft(new GUIContent("Invert Camera Rotation", "Inverts the up and down movement of the camera."), fpc.invertCamera);
