@@ -8,7 +8,7 @@ public class day4Whitescreen : MonoBehaviour
     public float transitionSpeed = 0.5f; // 颜色变化的速度
     public float waitTime = 3f; // 等待时间
     public string nextSceneName; // 下一个场景的名称
-
+    public GameObject activatedObject;
     private bool transitionStarted = false;
     private float targetAlpha = 0f;
 
@@ -19,6 +19,7 @@ public class day4Whitescreen : MonoBehaviour
         {
             transitionStarted = true;
             targetAlpha = 1f; // 将目标透明度设置为1，完全不透明
+            activatedObject.SetActive(true);
         }
 
         // 控制UI元素的透明度渐变
