@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class CrumbledPaper : MonoBehaviour
 {
-    public GameObject playerText;
+    //public GameObject playerText;
     public GameObject poster;
     public GameObject wastePaper;
-    public GameObject text;
+    //public GameObject text;
     private bool becomePoster = false;
 
     public GameObject interactionIcon; // 交互图标
@@ -19,27 +19,20 @@ public class CrumbledPaper : MonoBehaviour
     private bool _Eshowed = false;
 
     private AudioSource audioSource;
-    public bool readyToTrigger = false;
+    
 
     void Start()
     {
         _collider = GetComponent<Collider>();
-        playerText.SetActive(false);
+        //playerText.SetActive(false);
         interactionIcon.SetActive(false); // 初始隐藏交互图标
         mainCamera = GameManager.Camera;
 
         audioSource = poster.GetComponent<AudioSource>();
     }
 
-    public void SetReadyToTrigger()
-    {
-        readyToTrigger = true;
-    }
-
     void Update()
     {
-        if (readyToTrigger)
-        {
             RaycastHit hit;
             Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)); // 从屏幕中心发出射线
 
@@ -56,9 +49,9 @@ public class CrumbledPaper : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.E) && !becomePoster)
                     {
-                        playerText.SetActive(true);
+                        //playerText.SetActive(true);
                         wastePaper.GetComponent<MeshRenderer>().enabled = false;
-                        text.SetActive(false);
+                        //text.SetActive(false);
                         interactionIcon.SetActive(false);
                         poster.GetComponent<MeshRenderer>().enabled = true;
 
@@ -79,6 +72,6 @@ public class CrumbledPaper : MonoBehaviour
                     _Eshowed = false;
                 }
             }
-        }
+        
     }
 }
