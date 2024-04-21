@@ -21,7 +21,7 @@ public class DoorOpenClose : MonoBehaviour
 
     public Camera mainCamera;
     private bool _Eshowed = false;
-    private bool _isOpen = false;
+    [HideInInspector]public bool _isOpen = false;
     private Quaternion _targetRotation;
     private AudioSource _audioSource;
 
@@ -102,6 +102,7 @@ public class DoorOpenClose : MonoBehaviour
 
 
         if (interactionTrigger != null && !interactionTrigger.enableDoorInteraction)
+            if(notYetFinishSubtitle)
             notYetFinishSubtitle.enabled = _audioSource.isPlaying ? true : false;
 
 

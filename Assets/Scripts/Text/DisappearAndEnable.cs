@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DisappearAndEnable : MonoBehaviour
 {
-    public float timeBeforeTextAppear = 2f;
+    public float timeBeforeTextDisappear = 2f;
     public TypewriterCore textAnimator;
     [CanBeNull]public GameObject nextPlayerText;
     public bool hasNext = true; // 控制是否有下一个文字
@@ -17,7 +17,7 @@ public class DisappearAndEnable : MonoBehaviour
 
     private IEnumerator StartDisappearingDelay()
     {
-        yield return new WaitForSeconds(timeBeforeTextAppear);
+        yield return new WaitForSeconds(timeBeforeTextDisappear);
         textAnimator.StartDisappearingText();
     }
 
@@ -31,7 +31,7 @@ public class DisappearAndEnable : MonoBehaviour
 
     private IEnumerator EnableNextTextDelayed()
     {
-        yield return new WaitForSeconds(timeBeforeTextAppear);
+        yield return new WaitForSeconds(timeBeforeTextDisappear);
         nextPlayerText.SetActive(true);
     }
 }
