@@ -13523,6 +13523,7 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 4459864851239645680}
   interactionTrigger: {fileID: 0}
+  notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 0
 --- !u!65 &245166851
 BoxCollider:
@@ -14182,18 +14183,32 @@ MonoBehaviour:
   audioClips:
   - {fileID: 8300000, guid: e364aed9c7f4861418692d8c5cff4629, type: 3}
   - {fileID: 8300000, guid: 6aa9bd44ae64f5e4d832f423a65f1501, type: 3}
+  - {fileID: 8300000, guid: 30b66f070ba821b4fbc4f14b0be6adb4, type: 3}
   subtitles:
   - Dad! you can have some fruits on table if you want!
   - 'We are leaving now! Call me or aunt if you need help! '
+  - Bye Grandpa!
   subtitleText: {fileID: 250429550}
   audioSource: {fileID: 245166854}
   allClipsPlayed: 0
   firstAudioPlayed: 0
-  subtitlePlayAtBeginning: 0
-  timeBeforeFirstAudioIsPlayed: 3
+  subtitlePlayAtBeginning: 1
+  timeBeforeFirstAudioIsPlayed: 5
   afterSubtitle:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1642466276}
+        m_TargetAssemblyTypeName: showPlayerText2, Assembly-CSharp
+        m_MethodName: SetReadyToTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &250429550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32880,6 +32895,7 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 4459864851239645680}
   interactionTrigger: {fileID: 0}
+  notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 1
 --- !u!65 &607853501
 BoxCollider:
@@ -35454,6 +35470,7 @@ MonoBehaviour:
   blackScreenImage: {fileID: 747294958}
   fadeDuration: 1
   step: {fileID: 99127120}
+  readyToTrigger: 0
 --- !u!1 &649544839
 GameObject:
   m_ObjectHideFlags: 0
@@ -42110,7 +42127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &747294957
 RectTransform:
   m_ObjectHideFlags: 0
@@ -47685,7 +47702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips:
-  - {fileID: 8300000, guid: e23600a91c01beb4683d28334ab0947e, type: 3}
+  - {fileID: 8300000, guid: c9c147f96a5dc7a4f8f685f286f2ad97, type: 3}
   - {fileID: 8300000, guid: 594982881df1eff4c90e63f792601b99, type: 3}
   - {fileID: 8300000, guid: 714c6beb914d1094e890c8da89f68cc7, type: 3}
   subtitles:
@@ -47700,7 +47717,19 @@ MonoBehaviour:
   timeBeforeFirstAudioIsPlayed: 3
   afterSubtitle:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 250429549}
+        m_TargetAssemblyTypeName: Subtitle, Assembly-CSharp
+        m_MethodName: ActivateSubtitle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &854713765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79407,6 +79436,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1873590632}
+        m_TargetAssemblyTypeName: InteractionTrigger, Assembly-CSharp
+        m_MethodName: SetReadyToTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onCharacterVisible:
     m_PersistentCalls:
       m_Calls: []
@@ -93097,7 +93138,6 @@ GameObject:
   - component: {fileID: 1642466272}
   - component: {fileID: 1642466275}
   - component: {fileID: 1642466276}
-  - component: {fileID: 1642466277}
   m_Layer: 0
   m_Name: notice
   m_TagString: Untagged
@@ -93214,62 +93254,6 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 4459864851239645680}
   readyToTrigger: 0
---- !u!114 &1642466277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1642466270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb74d9dd06b04842b348f763991d015, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  readyToTrigger: 0
-  _EIcon: {fileID: 1810311095}
-  onActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  mainInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  triggerNextInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1873590632}
-        m_TargetAssemblyTypeName: InteractionTrigger, Assembly-CSharp
-        m_MethodName: SetReadyToTrigger
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  triggerNextEventAfterAudioWithoutSubtitle: 0
-  triggerNextEventAfterSubtitle: 0
-  triggerNextEventAfterAnimation: 0
-  triggerNextEventAfterPressE: 0
-  PlayerText: {fileID: 0}
-  mainCamera: {fileID: 0}
-  interactionDistance: 3
-  firstPersonController: {fileID: 0}
-  needAudioWithoutSubtitle: 0
-  banMovementDuringAudio: 0
-  AudioSource: {fileID: 1380367183}
-  AudioSourceToStop: {fileID: 0}
-  AudioToPlay: {fileID: 0}
-  AudioToStop: {fileID: 0}
-  needSubtitle: 0
-  banMovementDuringSubtitle: 0
-  banCameraRotationDuringSubtitle: 0
-  subtitle: {fileID: 0}
-  enableDoorAfterThisInteraction: 0
-  enableDoorInteraction: 0
-  animator: {fileID: 0}
 --- !u!1 &1644322025
 GameObject:
   m_ObjectHideFlags: 0
@@ -93512,6 +93496,7 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 4459864851239645680}
   interactionTrigger: {fileID: 0}
+  notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 0
 --- !u!65 &1644362039
 BoxCollider:
@@ -105760,9 +105745,9 @@ MonoBehaviour:
   onActivate:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1873590634}
-        m_TargetAssemblyTypeName: DelayAudio, Assembly-CSharp
-        m_MethodName: startCounting
+      - m_Target: {fileID: 648665113}
+        m_TargetAssemblyTypeName: HavePills, Assembly-CSharp
+        m_MethodName: SetReadyToTrigger
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -105775,6 +105760,10 @@ MonoBehaviour:
   mainInteraction:
     m_PersistentCalls:
       m_Calls: []
+  triggerNextEventAfterAudioWithoutSubtitle: 0
+  triggerNextEventAfterSubtitle: 0
+  triggerNextEventAfterAnimation: 0
+  triggerNextEventAfterPressE: 0
   triggerNextInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -105790,10 +105779,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerNextEventAfterAudioWithoutSubtitle: 0
-  triggerNextEventAfterSubtitle: 0
-  triggerNextEventAfterAnimation: 0
-  triggerNextEventAfterPressE: 0
   PlayerText: {fileID: 395491273}
   mainCamera: {fileID: 4459864851239645680}
   interactionDistance: 3
@@ -115287,7 +115272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useTypeWriter: 1
-  startTypewriterMode: 3
+  startTypewriterMode: -1
   hideAppearancesOnSkip: 0
   hideDisappearancesOnSkip: 0
   triggerEventsOnSkip: 0
@@ -123979,13 +123964,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerNextInteraction:
-    m_PersistentCalls:
-      m_Calls: []
   triggerNextEventAfterAudioWithoutSubtitle: 0
   triggerNextEventAfterSubtitle: 1
   triggerNextEventAfterAnimation: 0
   triggerNextEventAfterPressE: 0
+  triggerNextInteraction:
+    m_PersistentCalls:
+      m_Calls: []
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 4459864851239645680}
   interactionDistance: 3
