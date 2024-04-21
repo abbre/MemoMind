@@ -6092,7 +6092,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9027,6 +9027,8 @@ MonoBehaviour:
   afterSubtitle:
     m_PersistentCalls:
       m_Calls: []
+  enableDoorInteractionAfterSubtitle: 0
+  enableDoorInteraction: 0
 --- !u!114 &1387302094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9258,6 +9260,7 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 1517741163}
   interactionTrigger: {fileID: 0}
+  subtitle: {fileID: 0}
   notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 0
 --- !u!82 &1392223684
@@ -12278,6 +12281,8 @@ MonoBehaviour:
   afterSubtitle:
     m_PersistentCalls:
       m_Calls: []
+  enableDoorInteractionAfterSubtitle: 0
+  enableDoorInteraction: 0
 --- !u!114 &1592924501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14631,6 +14636,7 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 1517741163}
   interactionTrigger: {fileID: 0}
+  subtitle: {fileID: 0}
   notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 0
 --- !u!82 &1991361863
@@ -49896,6 +49902,7 @@ MonoBehaviour:
   interactionDistance: 3
   mainCamera: {fileID: 1517741163}
   interactionTrigger: {fileID: 1714111622}
+  subtitle: {fileID: 0}
   notYetFinishSubtitle: {fileID: 536007315}
   doorCanOpenInitially: 0
 --- !u!82 &3264650260540345579
