@@ -28,9 +28,9 @@ public class DoorOpenClose : MonoBehaviour
     private Collider _collider;
 
     [CanBeNull] public InteractionTrigger interactionTrigger;
+    [CanBeNull] [SerializeField] private TextMeshProUGUI notYetFinishSubtitle;
     [SerializeField] private bool doorCanOpenInitially = false;
-    [CanBeNull]private GameObject notYetFinishParent;
-    [CanBeNull]private TextMeshProUGUI notYetFinishSubtitle;
+ 
 
     void Start()
     {
@@ -39,12 +39,8 @@ public class DoorOpenClose : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         if (!doorCanOpenInitially)
         {
-            if(notYetFinishParent)
-            {
-                notYetFinishParent = GameObject.Find("Didn'tFinish");
-                notYetFinishSubtitle = notYetFinishParent.GetComponent<TextMeshProUGUI>();
+            if(notYetFinishSubtitle)
                 notYetFinishSubtitle.enabled = false;
-            }
         }
        
     }
