@@ -30,6 +30,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Day5.unity
     guid: d728760f85aa9c0438474bbdc24185b4
   - enabled: 1
+    path: Assets/Scenes/Opening.unity
+    guid: 98ffc74a464937e45912621d7be9ffb7
+  - enabled: 1
+    path: Assets/Scenes/ToCome.unity
+    guid: ce7b2aeba2902cf45865a31d5cf62747
+  - enabled: 1
+    path: Assets/Scenes/Day1 1.unity
+    guid: d07d3c4fbdac5f54fa2d111a8cf49e47
+  - enabled: 1
     path: Assets/Scenes/Day4_Black.unity
     guid: 2dc8b37e1dc7c954484843b29a737555
   m_configObjects: {}
