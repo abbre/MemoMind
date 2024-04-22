@@ -4092,9 +4092,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poster: {fileID: 6973807749048131524}
   wastePaper: {fileID: 199609836}
-  interactionIcon: {fileID: 1633287301}
-  interactionDistance: 3
-  mainCamera: {fileID: 1152798437}
 --- !u!114 &199609844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7126,6 +7123,8 @@ MonoBehaviour:
   afterSubtitle:
     m_PersistentCalls:
       m_Calls: []
+  enableDoorInteractionAfterSubtitle: 0
+  enableDoorInteraction: 0
 --- !u!1 &370676795
 GameObject:
   m_ObjectHideFlags: 0
@@ -19327,7 +19326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fdcd2e9ed781849bc6d7ee817f1c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeTextAppear: 1
+  timeBeforeTextDisappear: 2
   textAnimator: {fileID: 997483010}
   nextPlayerText: {fileID: 0}
   hasNext: 0
@@ -19865,7 +19864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fdcd2e9ed781849bc6d7ee817f1c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeTextAppear: 1
+  timeBeforeTextDisappear: 2
   textAnimator: {fileID: 1024313630}
   nextPlayerText: {fileID: 0}
   hasNext: 0
@@ -20888,7 +20887,9 @@ MonoBehaviour:
   interactionIcon: {fileID: 1695409985}
   interactionDistance: 3
   mainCamera: {fileID: 1152798437}
+  _isOpen: 0
   interactionTrigger: {fileID: 0}
+  subtitle: {fileID: 0}
   notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 0
 --- !u!65 &1053256579
@@ -27703,7 +27704,9 @@ MonoBehaviour:
   interactionIcon: {fileID: 257324333}
   interactionDistance: 3
   mainCamera: {fileID: 1152798437}
+  _isOpen: 0
   interactionTrigger: {fileID: 0}
+  subtitle: {fileID: 0}
   notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 0
 --- !u!82 &1392223684
@@ -37462,7 +37465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fdcd2e9ed781849bc6d7ee817f1c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeTextAppear: 1
+  timeBeforeTextDisappear: 2
   textAnimator: {fileID: 1911570368}
   nextPlayerText: {fileID: 1024313627}
   hasNext: 1
@@ -38241,6 +38244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockRotation: 0
   playerCamera: {fileID: 1152798437}
   fov: 60
   invertCamera: 0
@@ -76257,7 +76261,9 @@ MonoBehaviour:
   interactionIcon: {fileID: 783417622}
   interactionDistance: 3
   mainCamera: {fileID: 1152798437}
+  _isOpen: 0
   interactionTrigger: {fileID: 0}
+  subtitle: {fileID: 0}
   notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 0
 --- !u!82 &3264650260540345579
