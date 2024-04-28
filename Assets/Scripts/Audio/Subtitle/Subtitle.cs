@@ -28,7 +28,12 @@ public class Subtitle : MonoBehaviour
     [SerializeField] private bool enableDoorInteractionAfterSubtitle;
     [HideInInspector] public bool enableDoorInteraction = false;
 
-  
+    [SerializeField] private bool banPlayerMovementDuringSubtitle;
+    [SerializeField] private bool banCameraRotationDuringSubtitle;
+
+    public FirstPersonController firstPersonController;
+
+
     void Start()
     {
         // 重置当前音频索引为0，以确保每次游戏开始时都从第一个音频开始播放
@@ -37,8 +42,14 @@ public class Subtitle : MonoBehaviour
 
         if (subtitlePlayAtBeginning)
             ActivateSubtitle();
-    }
 
+        if (banCameraRotationDuringSubtitle)
+            firstPersonController.cameraCanMove = false;
+        
+        if (banPlayerMovementDuringSubtitle)
+            firstPersonController.playerCanMove = false;
+
+    }
 
     public void ActivateSubtitle()
     {
@@ -79,9 +90,15 @@ public class Subtitle : MonoBehaviour
                     enableDoorInteraction = true;
                 if (!_triggeredAfterSubtitleEvent)
                 {
-                        afterSubtitle.Invoke();
+                    afterSubtitle.Invoke();
                     _triggeredAfterSubtitleEvent = true;
                 }
+
+                if (banCameraRotationDuringSubtitle)
+                    firstPersonController.cameraCanMove = true;
+                
+                if (banPlayerMovementDuringSubtitle)
+                    firstPersonController.playerCanMove = true;
             }
         }
     }
