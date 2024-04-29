@@ -155,7 +155,6 @@ public class FirstPersonController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-
         if(crosshair)
         {
             crosshairObject.sprite = crosshairImage;
