@@ -6,32 +6,35 @@ public class PlayerMovement2D : MonoBehaviour
 {
     private Animator _anim;
     private Rigidbody _rb;
+    private SpriteRenderer _spriteRenderer;
     private static readonly int IsMoving = Animator.StringToHash("isMoving");
 
     [SerializeField] private float moveSpeed = 5.0f;
+    private readonly int _facingRight = Animator.StringToHash("FacingRight");
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _anim = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+        _rb.velocity = Vector3.zero;
         if (horizontalInput != 0)
         {
             // 根据水平输入方向计算移动向量
             Vector3 moveDirection = new Vector3(horizontalInput * moveSpeed * Time.deltaTime, 0, 0);
-            // 应用移动向量到玩家的位置
-            transform.Translate(moveDirection);
-            
-            // 翻转玩家的朝向
-            transform.localScale = new Vector3(Mathf.Sign(horizontalInput), 1, 1);
-            
-            // 设置动画参数
+           
+            var newPos = transform.position + moveDirection;
+            _rb.MovePosition(newPos);
+            _spriteRenderer.flipX = (horizontalInput < 0);
+           
             _anim.SetBool(IsMoving, true);
         }
         else
