@@ -2299,7 +2299,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 88c773b9b1331bd4f947bc81b2e5bd09, type: 2}
+      objectReference: {fileID: 2100000, guid: 375e88b04c7445d4f800f520f5c33e61, type: 2}
     - target: {fileID: -5510251110207249535, guid: f8db11936de8e104b947c23820762011,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -4968,6 +4968,7 @@ MonoBehaviour:
   enableDoorInteraction: 0
   banPlayerMovementDuringSubtitle: 1
   banCameraRotationDuringSubtitle: 0
+  banPlayerMovementAfterSubtitle: 1
   firstPersonController: {fileID: 602108458}
 --- !u!114 &554691091
 MonoBehaviour:
@@ -5502,7 +5503,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   familyPicPos: {fileID: 1373311123}
-  firstPersonController: {fileID: 0}
+  transformTime: 1
+  firstPersonController: {fileID: 602108458}
 --- !u!1 &607865405
 GameObject:
   m_ObjectHideFlags: 0
@@ -5583,6 +5585,7 @@ MonoBehaviour:
   enableDoorInteraction: 0
   banPlayerMovementDuringSubtitle: 1
   banCameraRotationDuringSubtitle: 0
+  banPlayerMovementAfterSubtitle: 1
   firstPersonController: {fileID: 602108458}
 --- !u!114 &607865408
 MonoBehaviour:
@@ -8144,6 +8147,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845274899}
   m_Mesh: {fileID: -6225943304258941561, guid: c06a0c5d3517ba344a24050a5e5c3be1, type: 3}
+--- !u!1 &863959580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863959581}
+  - component: {fileID: 863959582}
+  m_Layer: 0
+  m_Name: BanPlayerMovement
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &863959581
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863959580}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1771834085}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863959582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863959580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5468c73be8888ae4cb27083c92fa7d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstPersonController: {fileID: 602108458}
+  stepAudio: {fileID: 1024957311}
 --- !u!1001 &870995348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8469,51 +8518,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d431e38a47aef274d86ab142f8d9db34, type: 3}
---- !u!1 &957418489
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 957418490}
-  - component: {fileID: 957418491}
-  m_Layer: 0
-  m_Name: DisableTexts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &957418490
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957418489}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1771834085}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &957418491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 957418489}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87ff895e6f5d5444e89f10fdaed5e933, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagToFind: PlayerText
 --- !u!1 &959392318
 GameObject:
   m_ObjectHideFlags: 0
@@ -10334,7 +10338,19 @@ MonoBehaviour:
         m_CallState: 2
   onTextDisappeared:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8793798643082839287}
+        m_TargetAssemblyTypeName: InteractionTrigger, Assembly-CSharp
+        m_MethodName: SetReadyToTrigger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onCharacterVisible:
     m_PersistentCalls:
       m_Calls: []
@@ -10583,6 +10599,7 @@ MonoBehaviour:
   enableDoorInteraction: 0
   banPlayerMovementDuringSubtitle: 1
   banCameraRotationDuringSubtitle: 0
+  banPlayerMovementAfterSubtitle: 1
   firstPersonController: {fileID: 602108458}
 --- !u!114 &1196114174
 MonoBehaviour:
@@ -13516,6 +13533,7 @@ MonoBehaviour:
   enableDoorInteraction: 0
   banPlayerMovementDuringSubtitle: 1
   banCameraRotationDuringSubtitle: 0
+  banPlayerMovementAfterSubtitle: 1
   firstPersonController: {fileID: 602108458}
 --- !u!1 &1392223676
 GameObject:
@@ -13921,6 +13939,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 554691090}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   onTypewriterStart:
     m_PersistentCalls:
       m_Calls:
@@ -13938,19 +13968,7 @@ MonoBehaviour:
         m_CallState: 2
   onTextDisappeared:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 554691090}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
   onCharacterVisible:
     m_PersistentCalls:
       m_Calls: []
@@ -18010,9 +18028,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 957418490}
   - {fileID: 2021178657}
   - {fileID: 322980138}
+  - {fileID: 863959581}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1803477599
@@ -18301,6 +18319,7 @@ MonoBehaviour:
   enableDoorInteraction: 0
   banPlayerMovementDuringSubtitle: 1
   banCameraRotationDuringSubtitle: 0
+  banPlayerMovementAfterSubtitle: 1
   firstPersonController: {fileID: 602108458}
 --- !u!114 &1856400768
 MonoBehaviour:
@@ -59989,8 +60008,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.31635502, y: 1, z: 1}
+  m_Center: {x: 0.3418156, y: -0.0000010222725, z: 2.8668062e-10}
 --- !u!95 &3718232887731135025
 Animator:
   serializedVersion: 5
@@ -88786,7 +88805,6 @@ GameObject:
   - component: {fileID: 1950939631813933891}
   - component: {fileID: 2337080390404768210}
   - component: {fileID: 3718098440505415328}
-  - component: {fileID: 8793798643082839288}
   - component: {fileID: 8793798643082839287}
   m_Layer: 0
   m_Name: Cube
@@ -114051,7 +114069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eb74d9dd06b04842b348f763991d015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  readyToTrigger: 1
+  readyToTrigger: 0
   _EIcon: {fileID: 276449331}
   onActivate:
     m_PersistentCalls:
@@ -114095,20 +114113,6 @@ MonoBehaviour:
   enableDoorAfterThisInteraction: 0
   enableDoorInteraction: 0
   animator: {fileID: 0}
---- !u!114 &8793798643082839288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6465812668179513983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc1f395d7fcf7a74ab0e22785b8075b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  familyPicPos: {fileID: 8793798643082839286}
-  firstPersonController: {fileID: 602108458}
 --- !u!4 &8795848188593815825
 Transform:
   m_ObjectHideFlags: 0

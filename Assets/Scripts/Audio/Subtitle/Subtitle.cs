@@ -30,6 +30,9 @@ public class Subtitle : MonoBehaviour
 
     [SerializeField] private bool banPlayerMovementDuringSubtitle;
     [SerializeField] private bool banCameraRotationDuringSubtitle;
+    
+    [SerializeField] private bool banPlayerMovementAfterSubtitle = false;
+
 
     public FirstPersonController firstPersonController;
 
@@ -97,7 +100,7 @@ public class Subtitle : MonoBehaviour
                 if (banCameraRotationDuringSubtitle)
                     firstPersonController.cameraCanMove = true;
                 
-                if (banPlayerMovementDuringSubtitle)
+                if (banPlayerMovementDuringSubtitle && !banPlayerMovementAfterSubtitle)
                     firstPersonController.playerCanMove = true;
             }
         }
