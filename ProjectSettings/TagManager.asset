@@ -9,6 +9,7 @@ TagManager:
   - Day1
   - Day2
   - Step
+  - Trigger
   layers:
   - Default
   - TransparentFX

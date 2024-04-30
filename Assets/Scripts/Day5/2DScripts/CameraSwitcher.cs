@@ -4,7 +4,18 @@ using UnityEngine;
 public class CameraSwitcher : MonoBehaviour
 {
     public CinemachineVirtualCamera[] cameras;
-    private int currentCameraIndex = 0;
+    public int currentCameraIndex = 0;
+
+
+    private void OnEnable()
+    {
+        foreach (CinemachineVirtualCamera camera in cameras)
+        {
+            camera.enabled = false;
+        }
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,25 +25,14 @@ public class CameraSwitcher : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
-    private void SwitchToNextCamera()
-    {
-        
-    }
-    
-    private void EnableCamera(int index)
+    public void EnableCamera(int index)
     {
         cameras[index].enabled = true;
     }
 
-    private void onTriggerEnter()
+    public void DisableCamera(int prevIndex)
     {
-        
+        cameras[prevIndex].enabled = false;
     }
-    
 }
