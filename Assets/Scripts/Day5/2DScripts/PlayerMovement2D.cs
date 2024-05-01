@@ -1,3 +1,4 @@
+using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
@@ -20,11 +21,16 @@ public class PlayerMovement2D : MonoBehaviour
     public UnityEvent EnableNextSprite;
     [CanBeNull] [SerializeField] private GameObject previousSprite;
 
+    [CanBeNull] [SerializeField] private GameObject airWallToRestriction;
+    [CanBeNull] private Collider _airWallCollider;
+    
+    [CanBeNull] [SerializeField] private float timeBeforeCameraSwitch = 2f;
+
     public void TriggerNextFigure()
     {
         if (previousSprite)
             previousSprite.SetActive(false);
-        
+
         readyToTrigger = true;
     }
 
@@ -35,6 +41,8 @@ public class PlayerMovement2D : MonoBehaviour
         _anim = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider>();
+        if (airWallToRestriction)
+            _airWallCollider = airWallToRestriction.GetComponent<Collider>();
     }
 
     // Update is called once per frame
@@ -72,6 +80,27 @@ public class PlayerMovement2D : MonoBehaviour
             if (cameraSwitcher.currentCameraIndex >= 1)
                 cameraSwitcher.DisableCamera(cameraSwitcher.currentCameraIndex - 1);
             EnableNextSprite.Invoke();
+            if (airWallToRestriction)
+                _airWallCollider.isTrigger = false;
+        }
+
+        if (other.CompareTag("Grandma"))
+        {
+            EnableNextSprite.Invoke();
+            StartCoroutine(DelayThenEnableNextCamera());
         }
     }
+
+    private IEnumerator DelayThenEnableNextCamera()
+    {
+        yield return new WaitForSeconds(timeBeforeCameraSwitch);
+        cameraSwitcher.currentCameraIndex++;
+        cameraSwitcher.EnableCamera(cameraSwitcher.currentCameraIndex);
+        if (cameraSwitcher.currentCameraIndex >= 1)
+            cameraSwitcher.DisableCamera(cameraSwitcher.currentCameraIndex - 1);
+        EnableNextSprite.Invoke();
+        if (airWallToRestriction)
+            _airWallCollider.isTrigger = false;
+    }
 }
+

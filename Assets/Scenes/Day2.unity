@@ -14823,7 +14823,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -10.349426, y: 57}
+  m_AnchoredPosition: {x: -10.349365, y: 57}
   m_SizeDelta: {x: -117.9471, y: 52.231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &250429549
@@ -48575,7 +48575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -10.349426, y: 57}
+  m_AnchoredPosition: {x: -10.349365, y: 57}
   m_SizeDelta: {x: -117.9471, y: 52.231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &854713764
@@ -97496,7 +97496,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 6bd5ce0915b332e4fa768bbed01d25b8, type: 2}
 --- !u!4 &1691405499
 Transform:
   m_ObjectHideFlags: 0
@@ -102063,7 +102063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -10.349426, y: 57}
+  m_AnchoredPosition: {x: -10.349365, y: 57}
   m_SizeDelta: {x: -117.9471, y: 52.231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1778830952
@@ -125669,7 +125669,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

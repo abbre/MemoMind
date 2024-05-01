@@ -2552,13 +2552,13 @@ MonoBehaviour:
   mainInteraction:
     m_PersistentCalls:
       m_Calls: []
-  triggerNextInteraction:
-    m_PersistentCalls:
-      m_Calls: []
   triggerNextEventAfterAudioWithoutSubtitle: 0
   triggerNextEventAfterSubtitle: 0
   triggerNextEventAfterAnimation: 0
   triggerNextEventAfterPressE: 0
+  triggerNextInteraction:
+    m_PersistentCalls:
+      m_Calls: []
   PlayerText: {fileID: 569107950}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
@@ -2571,6 +2571,7 @@ MonoBehaviour:
   AudioToStop: {fileID: 0}
   needSubtitle: 0
   banMovementDuringSubtitle: 0
+  banCameraRotationDuringSubtitle: 0
   subtitle: {fileID: 0}
   enableDoorAfterThisInteraction: 0
   enableDoorInteraction: 0
@@ -4070,7 +4071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fdcd2e9ed781849bc6d7ee817f1c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeTextAppear: 0.5
+  timeBeforeTextDisappear: 2
   textAnimator: {fileID: 569107955}
   nextPlayerText: {fileID: 0}
   hasNext: 1
@@ -5137,13 +5138,13 @@ MonoBehaviour:
   mainInteraction:
     m_PersistentCalls:
       m_Calls: []
-  triggerNextInteraction:
-    m_PersistentCalls:
-      m_Calls: []
   triggerNextEventAfterAudioWithoutSubtitle: 0
   triggerNextEventAfterSubtitle: 0
   triggerNextEventAfterAnimation: 0
   triggerNextEventAfterPressE: 0
+  triggerNextInteraction:
+    m_PersistentCalls:
+      m_Calls: []
   PlayerText: {fileID: 1198368614}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
@@ -5156,6 +5157,7 @@ MonoBehaviour:
   AudioToStop: {fileID: 0}
   needSubtitle: 0
   banMovementDuringSubtitle: 0
+  banCameraRotationDuringSubtitle: 0
   subtitle: {fileID: 0}
   enableDoorAfterThisInteraction: 0
   enableDoorInteraction: 0
@@ -7410,7 +7412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fdcd2e9ed781849bc6d7ee817f1c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeTextAppear: 0.1
+  timeBeforeTextDisappear: 2
   textAnimator: {fileID: 1198368618}
   nextPlayerText: {fileID: 1513908678}
   hasNext: 1
@@ -8740,8 +8742,20 @@ MonoBehaviour:
   - Dad! I have to go to work, and Harper needs to go to school. Bye Dad!
   - Bye Grandpa!
   subtitleText: {fileID: 1387302094}
+  audioSource: {fileID: 0}
   allClipsPlayed: 0
+  firstAudioPlayed: 0
+  subtitlePlayAtBeginning: 0
   timeBeforeFirstAudioIsPlayed: 5
+  afterSubtitle:
+    m_PersistentCalls:
+      m_Calls: []
+  enableDoorInteractionAfterSubtitle: 0
+  enableDoorInteraction: 0
+  banPlayerMovementDuringSubtitle: 0
+  banCameraRotationDuringSubtitle: 0
+  banPlayerMovementAfterSubtitle: 0
+  firstPersonController: {fileID: 0}
 --- !u!114 &1387302094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8972,7 +8986,10 @@ MonoBehaviour:
   interactionIcon: {fileID: 257324333}
   interactionDistance: 3
   mainCamera: {fileID: 4459864849662493552}
+  _isOpen: 0
   interactionTrigger: {fileID: 0}
+  subtitle: {fileID: 0}
+  notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 1
 --- !u!82 &1392223684
 AudioSource:
@@ -10229,7 +10246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fdcd2e9ed781849bc6d7ee817f1c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeTextAppear: 0.1
+  timeBeforeTextDisappear: 2
   textAnimator: {fileID: 1513908684}
   nextPlayerText: {fileID: 0}
   hasNext: 0
@@ -10575,6 +10592,124 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -227.5}
   m_SizeDelta: {x: 988, y: -455}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1546083511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1546083514}
+  - component: {fileID: 1546083513}
+  - component: {fileID: 1546083512}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1546083512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546083511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &1546083513
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546083511}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &1546083514
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1546083511}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.9577002, y: -0, z: -0, w: -0.28776798}
+  m_LocalPosition: {x: 10.06, y: 1.402, z: 7.315}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 213.449, y: 0, z: 0}
 --- !u!1 &1574466214
 GameObject:
   m_ObjectHideFlags: 0
@@ -11882,8 +12017,20 @@ MonoBehaviour:
   - I see, sir. Your bill has been sent to your email.
   - 'Thank you, appreciate your help. '
   subtitleText: {fileID: 1592924501}
+  audioSource: {fileID: 0}
   allClipsPlayed: 0
+  firstAudioPlayed: 0
+  subtitlePlayAtBeginning: 0
   timeBeforeFirstAudioIsPlayed: 0
+  afterSubtitle:
+    m_PersistentCalls:
+      m_Calls: []
+  enableDoorInteractionAfterSubtitle: 0
+  enableDoorInteraction: 0
+  banPlayerMovementDuringSubtitle: 0
+  banCameraRotationDuringSubtitle: 0
+  banPlayerMovementAfterSubtitle: 0
+  firstPersonController: {fileID: 0}
 --- !u!114 &1592924501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12598,6 +12745,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  triggerNextEventAfterAudioWithoutSubtitle: 0
+  triggerNextEventAfterSubtitle: 0
+  triggerNextEventAfterAnimation: 0
+  triggerNextEventAfterPressE: 0
   triggerNextInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -12613,10 +12764,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerNextEventAfterAudioWithoutSubtitle: 0
-  triggerNextEventAfterSubtitle: 0
-  triggerNextEventAfterAnimation: 0
-  triggerNextEventAfterPressE: 0
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
@@ -12629,6 +12776,7 @@ MonoBehaviour:
   AudioToStop: {fileID: 0}
   needSubtitle: 0
   banMovementDuringSubtitle: 0
+  banCameraRotationDuringSubtitle: 0
   subtitle: {fileID: 0}
   enableDoorAfterThisInteraction: 0
   enableDoorInteraction: 0
@@ -12838,7 +12986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fdcd2e9ed781849bc6d7ee817f1c1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBeforeTextAppear: 1
+  timeBeforeTextDisappear: 2
   textAnimator: {fileID: 1743758268}
   nextPlayerText: {fileID: 0}
   hasNext: 0
@@ -14136,7 +14284,10 @@ MonoBehaviour:
   interactionIcon: {fileID: 727813692}
   interactionDistance: 3
   mainCamera: {fileID: 4459864849662493552}
+  _isOpen: 0
   interactionTrigger: {fileID: 0}
+  subtitle: {fileID: 0}
+  notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 1
 --- !u!82 &1991361863
 AudioSource:
@@ -29293,13 +29444,13 @@ MonoBehaviour:
   mainInteraction:
     m_PersistentCalls:
       m_Calls: []
-  triggerNextInteraction:
-    m_PersistentCalls:
-      m_Calls: []
   triggerNextEventAfterAudioWithoutSubtitle: 0
   triggerNextEventAfterSubtitle: 0
   triggerNextEventAfterAnimation: 0
   triggerNextEventAfterPressE: 0
+  triggerNextInteraction:
+    m_PersistentCalls:
+      m_Calls: []
   PlayerText: {fileID: 1743758264}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
@@ -29312,6 +29463,7 @@ MonoBehaviour:
   AudioToStop: {fileID: 8300000, guid: 2a0bb8a3bf678a44592bf4ca9e0a0a50, type: 3}
   needSubtitle: 0
   banMovementDuringSubtitle: 0
+  banCameraRotationDuringSubtitle: 0
   subtitle: {fileID: 0}
   enableDoorAfterThisInteraction: 0
   enableDoorInteraction: 0
@@ -51408,7 +51560,10 @@ MonoBehaviour:
   interactionIcon: {fileID: 783417622}
   interactionDistance: 3
   mainCamera: {fileID: 4459864849662493552}
+  _isOpen: 0
   interactionTrigger: {fileID: 0}
+  subtitle: {fileID: 0}
+  notYetFinishSubtitle: {fileID: 0}
   doorCanOpenInitially: 1
 --- !u!82 &3264650260540345579
 AudioSource:
@@ -53916,6 +54071,10 @@ MonoBehaviour:
   mainInteraction:
     m_PersistentCalls:
       m_Calls: []
+  triggerNextEventAfterAudioWithoutSubtitle: 0
+  triggerNextEventAfterSubtitle: 1
+  triggerNextEventAfterAnimation: 0
+  triggerNextEventAfterPressE: 0
   triggerNextInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -53931,10 +54090,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  triggerNextEventAfterAudioWithoutSubtitle: 0
-  triggerNextEventAfterSubtitle: 1
-  triggerNextEventAfterAnimation: 0
-  triggerNextEventAfterPressE: 0
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
@@ -53947,6 +54102,7 @@ MonoBehaviour:
   AudioToStop: {fileID: 0}
   needSubtitle: 1
   banMovementDuringSubtitle: 1
+  banCameraRotationDuringSubtitle: 0
   subtitle: {fileID: 1592924500}
   enableDoorAfterThisInteraction: 0
   enableDoorInteraction: 0
@@ -64810,6 +64966,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90ba6530d9bfda47abb4610956b2f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lockRotation: 0
   playerCamera: {fileID: 4459864849662493552}
   fov: 60
   invertCamera: 0
@@ -81530,6 +81687,9 @@ MonoBehaviour:
   mainCamera: {fileID: 4459864849662493552}
   SleepCamera: {fileID: 159813431}
   blackScreen: {fileID: 1598769249}
+  loadScene:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!23 &5906081157396698204
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -120175,3 +120335,4 @@ SceneRoots:
   - {fileID: 5749390868938945568}
   - {fileID: 6874758623329711243}
   - {fileID: 1465569333}
+  - {fileID: 1546083514}
