@@ -19,19 +19,28 @@ public class PlayerMovement2D : MonoBehaviour
     public CameraSwitcher cameraSwitcher;
 
     public UnityEvent EnableNextSprite;
-    [CanBeNull] [SerializeField] private GameObject previousSprite;
+   
+
+    [CanBeNull] [SerializeField] private GameObject[] currentSprite;
 
     [CanBeNull] [SerializeField] private GameObject airWallToRestriction;
     [CanBeNull] private Collider _airWallCollider;
-    
-    [CanBeNull] [SerializeField] private float timeBeforeCameraSwitch = 2f;
 
-    public void TriggerNextFigure()
+
+    public void TriggerCurrentFigure()
     {
-        if (previousSprite)
-            previousSprite.SetActive(false);
-
         readyToTrigger = true;
+    }
+
+    public void DisableCurrentSprite()
+    {
+        if (currentSprite.Length > 0)
+        {
+            foreach (var sprite in currentSprite)
+            {
+                sprite.SetActive(false);
+            }
+        }
     }
 
     // Start is called before the first frame update
@@ -86,21 +95,12 @@ public class PlayerMovement2D : MonoBehaviour
 
         if (other.CompareTag("Grandma"))
         {
+            cameraSwitcher.StartDelayThenEnableNextCamera();
             EnableNextSprite.Invoke();
-            StartCoroutine(DelayThenEnableNextCamera());
+            if (cameraSwitcher.currentCameraIndex >= 1)
+                cameraSwitcher.DisableCamera(cameraSwitcher.currentCameraIndex - 1);
+            if (airWallToRestriction)
+                _airWallCollider.isTrigger = false;
         }
     }
-
-    private IEnumerator DelayThenEnableNextCamera()
-    {
-        yield return new WaitForSeconds(timeBeforeCameraSwitch);
-        cameraSwitcher.currentCameraIndex++;
-        cameraSwitcher.EnableCamera(cameraSwitcher.currentCameraIndex);
-        if (cameraSwitcher.currentCameraIndex >= 1)
-            cameraSwitcher.DisableCamera(cameraSwitcher.currentCameraIndex - 1);
-        EnableNextSprite.Invoke();
-        if (airWallToRestriction)
-            _airWallCollider.isTrigger = false;
-    }
 }
-
