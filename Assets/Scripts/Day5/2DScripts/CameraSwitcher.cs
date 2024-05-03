@@ -1,3 +1,4 @@
+using System.Collections;
 using Cinemachine;
 using UnityEngine;
 
@@ -34,5 +35,18 @@ public class CameraSwitcher : MonoBehaviour
     public void DisableCamera(int prevIndex)
     {
         cameras[prevIndex].enabled = false;
+    }
+
+    public void StartDelayThenEnableNextCamera()
+    {
+        StartCoroutine(DelayThenEnableNextCamera());
+    }
+    public IEnumerator DelayThenEnableNextCamera()
+    {
+        yield return new WaitForSeconds(2f);
+        currentCameraIndex++;
+        cameras[currentCameraIndex].enabled = true;
+        cameras[currentCameraIndex-1].enabled = false;
+
     }
 }

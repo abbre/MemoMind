@@ -22,14 +22,14 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 516890800, guid: cf194ea1f6aa0124794b20641f6f1627, type: 3}
-    - time: 0.083333336
+    - time: 0.5
       value: {fileID: -1410361916, guid: cf194ea1f6aa0124794b20641f6f1627, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 12
+  m_SampleRate: 2
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
