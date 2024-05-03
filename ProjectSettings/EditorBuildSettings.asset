@@ -5,12 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Day1.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/ForestPark.unity
-    guid: faf03eb0022646748b9b3760f5537df6
+    guid: 6f70a259b8f896b4c9e59194eedc51f7
   - enabled: 1
     path: Assets/Scenes/Day4.unity
     guid: dbf1aad59f119f94ea6249bee1d94734
@@ -22,13 +22,13 @@ EditorBuildSettings:
     guid: 5cf0a4d98824ec449a3e620c98302db4
   - enabled: 1
     path: Assets/Scenes/Day4.unity
-    guid: 9caffa1af5570954c911de1b3e624a5c
+    guid: dbf1aad59f119f94ea6249bee1d94734
   - enabled: 1
     path: Assets/Scenes/Day6.unity
-    guid: 5665393a0e536004daff4a34a95e305b
+    guid: 7c688455f4fd06146b061de591b330e1
   - enabled: 1
     path: Assets/Scenes/Day5.unity
-    guid: d728760f85aa9c0438474bbdc24185b4
+    guid: cc86ccdf814c08f4bac84e907b71de0f
   - enabled: 1
     path: Assets/Scenes/Opening.unity
     guid: 98ffc74a464937e45912621d7be9ffb7
@@ -41,4 +41,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day4_Black.unity
     guid: 2dc8b37e1dc7c954484843b29a737555
+  - enabled: 1
+    path: Assets/Scenes/Day5Write.unity
+    guid: 4ae40d0d2fbed534aadc075068b3dd37
+  - enabled: 1
+    path: Assets/Scenes/Plane.unity
+    guid: a80ea72cb33148a4ea2a9596bec8d143
   m_configObjects: {}

@@ -70,7 +70,7 @@ public class InteractionTrigger : MonoBehaviour
         _collider = GetComponent<Collider>();
         _EIcon.SetActive(false);
         step = GameObject.Find("Step");
-        stepAudio = step.GetComponent<AudioSource>();
+       // stepAudio = step.GetComponent<AudioSource>();
     }
 
     public void SetReadyToTrigger()
