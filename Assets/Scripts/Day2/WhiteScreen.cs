@@ -12,6 +12,8 @@ public class WhiteScreen : MonoBehaviour
 
     // Start is called before the first frame update
     public UnityEvent LoadScene;
+    public AudioSource audioSource;
+    public AudioClip audioClip;
 
     public void startWhiteScreen()
     {
@@ -24,6 +26,9 @@ public class WhiteScreen : MonoBehaviour
         float duration = 1.0f; // 渐变时间
         Color startColor = whiteScreenImage.color;
         Color targetColor = new Color(1f, 1f, 1f, 1f); // 完全不透明的白色
+
+        audioSource.clip = audioClip;
+        audioSource.Play();
 
         while (Time.time - startTime < duration)
         {
