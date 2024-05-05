@@ -8,6 +8,7 @@ public class FamilyPhotoFadeOut : MonoBehaviour
     private Material familyPhotoMaterial;
     private Color originalColor;
 
+
     void Start()
     {
         // 获取物体的初始材质
@@ -16,15 +17,19 @@ public class FamilyPhotoFadeOut : MonoBehaviour
         originalColor = familyPhotoMaterial.color;
     }
 
-    void Update()
+    public void FamilyPhotoStartFading()
     {
-        float fadeAmount = Time.deltaTime / fadeOutTime;
-        familyPhotoMaterial.color = Color.Lerp(familyPhotoMaterial.color, Color.clear, fadeAmount);
+        StartCoroutine(FamilyPhotoFade());
     }
 
-    // 这是一个示例方法，用于重置材质的颜色为初始颜色
-    public void ResetMaterialColor()
+    private IEnumerator FamilyPhotoFade()
     {
-        familyPhotoMaterial.color = originalColor;
+        var time = 0f;
+        while(time < fadeOutTime)
+        {
+            time += Time.deltaTime;
+            familyPhotoMaterial.color = Color.Lerp(familyPhotoMaterial.color, Color.clear, time/fadeOutTime);
+            yield return null;
+        }
     }
 }

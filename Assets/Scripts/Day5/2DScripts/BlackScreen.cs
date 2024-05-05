@@ -1,14 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class WhiteScreen : MonoBehaviour
+public class BlackScreen : MonoBehaviour
 {
-    public Image whiteScreenImage;
+    [SerializeField] private bool fadeAtBeginning;
 
+    public Image blackScreenImage;
+    [SerializeField] private float targetOpacity;
     public float fadeDuration = 1.0f; // 渐变时间
 
     // Start is called before the first frame update
@@ -16,17 +17,26 @@ public class WhiteScreen : MonoBehaviour
     [CanBeNull] public AudioSource audioSource;
     [CanBeNull] public AudioClip audioClip;
 
-    public void startWhiteScreen()
+    public UnityEvent TriggerNextObject;
+
+
+    void Start()
     {
-        StartCoroutine(TurnWhiteScreen());
+        if (fadeAtBeginning)
+            StartCoroutine(TurnBlackScreen());
     }
 
-    private IEnumerator TurnWhiteScreen()
+    public void startBlackScreen()
+    {
+        StartCoroutine(TurnBlackScreen());
+    }
+
+    private IEnumerator TurnBlackScreen()
     {
         float startTime = Time.time;
-        float duration = 1.0f; // 渐变时间
-        Color startColor = whiteScreenImage.color;
-        Color targetColor = new Color(1f, 1f, 1f, 1f); // 完全不透明的白色
+        float duration = 3f; // 渐变时间
+        float startOpacity = blackScreenImage.color.a;
+
 
         if (audioSource)
         {
@@ -38,12 +48,13 @@ public class WhiteScreen : MonoBehaviour
         {
             float elapsedTime = Time.time - startTime;
             float t = Mathf.Clamp01(elapsedTime / duration);
-            whiteScreenImage.color = Color.Lerp(startColor, targetColor, t);
+            Color newColor = blackScreenImage.color;
+            newColor.a = Mathf.Lerp(startOpacity, targetOpacity, t);
+            blackScreenImage.color = newColor;
             yield return null;
         }
 
-        // 设置 Image 的颜色为完全不透明的白色
-        whiteScreenImage.color = targetColor;
+        TriggerNextObject.Invoke();
         yield return new WaitForSeconds(1.0f);
         LoadScene.Invoke();
     }

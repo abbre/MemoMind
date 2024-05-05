@@ -11,6 +11,8 @@ TagManager:
   - Step
   - Trigger
   - Grandma
+  - PictureTriggers
+  - SceneTrigger
   layers:
   - Default
   - TransparentFX

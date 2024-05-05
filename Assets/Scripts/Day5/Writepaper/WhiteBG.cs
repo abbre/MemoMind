@@ -12,7 +12,7 @@ public class WhiteBG : MonoBehaviour
 
     // Start is called before the first frame update
     public UnityEvent LoadScene;
-
+   
     public void startWhiteScreen()
     {
         StartCoroutine(TurnWhiteScreen());

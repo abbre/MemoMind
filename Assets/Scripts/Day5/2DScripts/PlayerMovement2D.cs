@@ -19,13 +19,19 @@ public class PlayerMovement2D : MonoBehaviour
     public CameraSwitcher cameraSwitcher;
 
     public UnityEvent EnableNextSprite;
-   
+
 
     [CanBeNull] [SerializeField] private GameObject[] currentSprite;
 
     [CanBeNull] [SerializeField] private GameObject airWallToRestriction;
     [CanBeNull] private Collider _airWallCollider;
 
+
+    [CanBeNull] [SerializeField] private GameObject[] currentBgPics;
+    [SerializeField] private int currentPicIndex = -1;
+
+    [SerializeField] private float bgPicFadeInTime;
+    public UnityEvent TriggerFadeScreen;
 
     public void TriggerCurrentFigure()
     {
@@ -52,6 +58,14 @@ public class PlayerMovement2D : MonoBehaviour
         _collider = GetComponent<Collider>();
         if (airWallToRestriction)
             _airWallCollider = airWallToRestriction.GetComponent<Collider>();
+
+        if (currentBgPics.Length > 0)
+        {
+            foreach (var bgPic in currentBgPics)
+            {
+                bgPic.SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame
@@ -102,5 +116,37 @@ public class PlayerMovement2D : MonoBehaviour
             if (airWallToRestriction)
                 _airWallCollider.isTrigger = false;
         }
+
+        if (other.CompareTag("PictureTriggers"))
+        {
+            currentPicIndex++;
+            other.enabled = false;
+            currentBgPics[currentPicIndex].SetActive(true);
+            StartCoroutine(fadeInBgPic());
+        }
+
+        if (other.CompareTag("SceneTrigger"))
+        {
+            TriggerFadeScreen.Invoke();
+        }
+    }
+
+    private IEnumerator fadeInBgPic()
+    {
+        float startTime = Time.time;
+        Color startColor = currentBgPics[currentPicIndex].GetComponent<SpriteRenderer>().color;
+        Color targetColor = new Color(1f, 1f, 1f, 0.04f);
+
+        while (Time.time - startTime < bgPicFadeInTime)
+        {
+            float elapsedTime = Time.time - startTime;
+            float t = Mathf.Clamp01(elapsedTime / bgPicFadeInTime);
+            currentBgPics[currentPicIndex].GetComponent<SpriteRenderer>().color =
+                Color.Lerp(startColor, targetColor, t);
+            yield return null;
+        }
+
+        // 设置 Image 的颜色为完全不透明的白色
+        currentBgPics[currentPicIndex].GetComponent<SpriteRenderer>().color = targetColor;
     }
 }

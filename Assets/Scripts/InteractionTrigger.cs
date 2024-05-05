@@ -10,11 +10,12 @@ public class InteractionTrigger : MonoBehaviour
 {
     public bool readyToTrigger = false;
 
-    [Header("Children")] [SerializeField] private GameObject _EIcon;
+    [Header("Children")] [SerializeField] [CanBeNull]
+    private GameObject _EIcon;
 
     [Header("Unity Event")] public UnityEvent onActivate;
     public UnityEvent mainInteraction;
-   
+
     [Space(10)] [SerializeField] private bool triggerNextEventAfterAudioWithoutSubtitle;
     [SerializeField] private bool triggerNextEventAfterSubtitle;
     [SerializeField] private bool triggerNextEventAfterAnimation;
@@ -68,9 +69,10 @@ public class InteractionTrigger : MonoBehaviour
     void Start()
     {
         _collider = GetComponent<Collider>();
-        _EIcon.SetActive(false);
+        if (_EIcon)
+            _EIcon.SetActive(false);
         step = GameObject.Find("Step");
-       // stepAudio = step.GetComponent<AudioSource>();
+        stepAudio = step.GetComponent<AudioSource>();
     }
 
     public void SetReadyToTrigger()
@@ -100,13 +102,17 @@ public class InteractionTrigger : MonoBehaviour
                 {
                     if (!_Eshowed)
                     {
-                        _EIcon.SetActive(true);
+                        if (_EIcon)
+                            _EIcon.SetActive(true);
                     }
 
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                         _eventTrigger = true;
-                        _EIcon.SetActive(false);
+
+                        if (_EIcon)
+                            _EIcon.SetActive(false);
+
                         _Eshowed = true;
                         _hasInteracted = true;
 
@@ -124,7 +130,9 @@ public class InteractionTrigger : MonoBehaviour
                 else
                 {
                     // 如果射线没有击中任何物体，隐藏交互图标
-                    _EIcon.SetActive(false);
+                    if (_EIcon)
+                        _EIcon.SetActive(false);
+
                     _Eshowed = false;
                 }
 
