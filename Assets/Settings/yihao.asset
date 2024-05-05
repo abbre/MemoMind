@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.45
   scatter:
     m_OverrideState: 0
     m_Value: 0.7
@@ -256,10 +256,10 @@ MonoBehaviour:
     m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 0.02
+    m_Value: 0.56
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 0.82
+    m_Value: 10
   gaussianMaxRadius:
     m_OverrideState: 0
     m_Value: 1.046

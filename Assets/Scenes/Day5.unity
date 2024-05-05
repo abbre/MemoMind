@@ -5506,7 +5506,7 @@ MonoBehaviour:
   transformTime: 1
   firstPersonController: {fileID: 602108458}
   timeBeforeBlackScreenFadeIn: 2
-  timeBeforeSwitchScene: 2
+  timeBeforeSwitchScene: 4
   LoadScene:
     m_PersistentCalls:
       m_Calls:
@@ -18304,13 +18304,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071b69d4ffcc6ba40ab7653499d84d3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeAtBeginning: 0
   blackScreenImage: {fileID: 1814980132}
+  targetOpacity: 1
   fadeDuration: 2
   LoadScene:
     m_PersistentCalls:
       m_Calls: []
   audioSource: {fileID: 0}
   audioClip: {fileID: 0}
+  TriggerNextObject:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1814980132
 MonoBehaviour:
   m_ObjectHideFlags: 0

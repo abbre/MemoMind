@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class KitchenToilet : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class KitchenToilet : MonoBehaviour
     public GameObject IllusiveDoors;
 
     [SerializeField] private GameObject RestTrigger;
+    public UnityEvent EnableNext;
+
 
     void Start()
     {
@@ -47,6 +50,13 @@ public class KitchenToilet : MonoBehaviour
             OpenDoor();
             EnableIllusiveDoor();
             EnableRestTrigger();
+            StartCoroutine(TriggerNextText());
         }
+    }
+
+    private IEnumerator TriggerNextText()
+    {
+        yield return new WaitForSeconds(3f);
+        EnableNext.Invoke();
     }
 }
