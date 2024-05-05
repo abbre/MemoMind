@@ -11,7 +11,9 @@ public class SceneAudioManager : MonoBehaviour
     private AudioSource audioSource; // 用于播放音频的 AudioSource
     private int currentClipIndex = 0; // 当前播放的音频索引
     private bool allClipsPlayed = false; // 标记所有音频是否已经播放完毕
-
+    private bool paused=false;
+    
+    
     void Start()
     {
         // 获取 AudioSource 组件
@@ -25,7 +27,7 @@ public class SceneAudioManager : MonoBehaviour
     }
 
     void Update()
-    {
+    {  GetComponent<AudioSource>().pitch = Time.timeScale;
         // 检测当前音频是否播放完毕，如果播放完毕，则播放下一个音频和相应的字幕
         if (!audioSource.isPlaying && !allClipsPlayed)
         {
@@ -37,8 +39,7 @@ public class SceneAudioManager : MonoBehaviour
             StartCoroutine(LoadNextSceneAfterDelay(3f));
         }
     }
-
-    // 播放下一个音频和相应的字幕
+    
     void PlayNextClip()
     {
         // 如果当前音频索引超出了音频数组的长度，则重新开始
@@ -61,7 +62,11 @@ public class SceneAudioManager : MonoBehaviour
         }
 
         // 增加音频索引以准备播放下一个音频
-        currentClipIndex++;
+        if (!PauseMenuNC.isPaused)
+        {
+            currentClipIndex++; 
+        }
+        
     }
 
     // 加载下一个场景的协程
@@ -73,4 +78,20 @@ public class SceneAudioManager : MonoBehaviour
         // 切换到下一个场景
         SceneManager.LoadScene("ForestPark"); // 替换 "YourNextSceneName" 为你想要加载的下一个场景的名称
     }
-}
+
+    public void PauseAudio(bool statePause)
+    {
+        if (statePause)
+        {
+            GetComponent<AudioSource>().pitch = Time.timeScale;
+            audioSource.Pause();
+
+        }
+        else
+        {
+            GetComponent<AudioSource>().pitch = Time.timeScale;
+            audioSource.UnPause(); // 继续播放当前的音频
+
+        }
+    }
+    }

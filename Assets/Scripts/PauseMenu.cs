@@ -1,10 +1,12 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
-
-    private bool isPaused = false;
+    [CanBeNull] public FirstPersonController firstPersonController;
+    public static bool isPaused = false;
+    
 
     private void Update()
     {
@@ -20,6 +22,8 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         isPaused = true;
+        firstPersonController.cameraCanMove = false;
+   
         Time.timeScale = 0f; // 暂停游戏
         Cursor.lockState = CursorLockMode.None; // 解锁光标
         Cursor.visible = true; // 显示光标
@@ -28,7 +32,9 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        firstPersonController.cameraCanMove = true;
         isPaused = false;
+
         Time.timeScale = 1f; // 恢复游戏
         Cursor.lockState = CursorLockMode.Locked; // 锁定光标
         Cursor.visible = false; // 隐藏光标
