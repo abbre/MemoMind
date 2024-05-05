@@ -201,6 +201,16 @@ public class FirstPersonController : MonoBehaviour
 
     private void Update()
     {
+        if (!playerCanMove)
+        {
+            enableHeadBob = false;
+        }
+        else
+        {
+            enableHeadBob = true;
+        }
+        
+        
         #region Camera
 
         // Control camera movement

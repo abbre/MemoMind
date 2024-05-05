@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 public class GameManager : MonoBehaviour
@@ -14,6 +15,16 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
+        StartCoroutine(AsyncLoadScene(sceneName));
+    }
+
+    private IEnumerator AsyncLoadScene(string sceneName)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
     }
 }
