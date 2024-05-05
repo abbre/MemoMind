@@ -14867,7 +14867,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 367359711}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: InteractionTrigger, Assembly-CSharp
         m_MethodName: SetReadyToTrigger
         m_Mode: 1
@@ -20682,10 +20682,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 367359707}
-  - component: {fileID: 367359709}
   - component: {fileID: 367359708}
   - component: {fileID: 367359710}
-  - component: {fileID: 367359711}
+  - component: {fileID: 367359712}
   m_Layer: 0
   m_Name: Fruits
   m_TagString: Untagged
@@ -20808,21 +20807,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &367359709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 367359706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6278296544ae984595fc36531180053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eatingSounds:
-  - {fileID: 8300000, guid: d14312d4519f79d4ea134fa9e588b355, type: 3}
-  - {fileID: 8300000, guid: f2163ddc0ec55ed42bf6475c5f076b10, type: 3}
 --- !u!65 &367359710
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20844,7 +20828,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.23073688, y: 0.1506905, z: 0.27330926}
   m_Center: {x: -0.006436348, y: 0.07545555, z: 0.0015198737}
---- !u!114 &367359711
+--- !u!114 &367359712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20853,53 +20837,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 367359706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2eb74d9dd06b04842b348f763991d015, type: 3}
+  m_Script: {fileID: 11500000, guid: 1878bbe1a4d6a4e4cbf3f24c47882d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  readyToTrigger: 0
-  _EIcon: {fileID: 1450894571}
-  onActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  mainInteraction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 367359709}
-        m_TargetAssemblyTypeName: Eat, Assembly-CSharp
-        m_MethodName: EatDrink
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  triggerNextEventAfterAudioWithoutSubtitle: 0
-  triggerNextEventAfterSubtitle: 0
-  triggerNextEventAfterAnimation: 0
-  triggerNextEventAfterPressE: 0
-  triggerNextInteraction:
-    m_PersistentCalls:
-      m_Calls: []
-  PlayerText: {fileID: 0}
-  mainCamera: {fileID: 4459864851239645680}
+  interactionIcon: {fileID: 1450894571}
   interactionDistance: 3
-  firstPersonController: {fileID: 4459864850483551086}
-  needAudioWithoutSubtitle: 0
-  banMovementDuringAudio: 0
-  AudioSource: {fileID: 0}
-  AudioSourceToStop: {fileID: 0}
-  AudioToPlay: {fileID: 0}
-  AudioToStop: {fileID: 0}
-  needSubtitle: 0
-  banMovementDuringSubtitle: 0
-  banCameraRotationDuringSubtitle: 0
-  subtitle: {fileID: 0}
-  enableDoorAfterThisInteraction: 0
-  enableDoorInteraction: 0
-  animator: {fileID: 0}
+  mainCamera: {fileID: 4459864851239645680}
+  eatingSounds:
+  - {fileID: 8300000, guid: f2163ddc0ec55ed42bf6475c5f076b10, type: 3}
+  - {fileID: 8300000, guid: d14312d4519f79d4ea134fa9e588b355, type: 3}
 --- !u!1 &367873846
 GameObject:
   m_ObjectHideFlags: 0
@@ -34334,16 +34280,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617071394}
-  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.009730052}
-  m_LocalScale: {x: 0.00047199777, y: 0.0004372497, z: 0.0010876072}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1642466271}
+  m_Father: {fileID: 1301589093}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.07825, y: 0.00317}
+  m_AnchoredPosition: {x: 0, y: -0.00003329036}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &617071396
@@ -68127,16 +68073,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173029740}
-  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: -0.009730052}
-  m_LocalScale: {x: 0.00047199777, y: 0.0004372497, z: 0.0010876072}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1642466271}
+  m_Father: {fileID: 1301589093}
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.08071, y: 0.00353}
+  m_AnchoredPosition: {x: -0.76271015, y: 5.626037}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1173029742
@@ -74846,6 +74792,43 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301572264}
   m_Mesh: {fileID: 4300000, guid: af2166692e99625489131a7bf2114bd6, type: 3}
+--- !u!1 &1301589092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1301589093}
+  m_Layer: 0
+  m_Name: text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1301589093
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301589092}
+  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.009730052}
+  m_LocalScale: {x: 0.00047199774, y: 0.00043724972, z: 0.0010876071}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 617071395}
+  - {fileID: 1173029741}
+  m_Father: {fileID: 1642466271}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.07825001, y: 0.003170002}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1301861310
 GameObject:
   m_ObjectHideFlags: 0
@@ -94745,8 +94728,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1810311096}
-  - {fileID: 617071395}
-  - {fileID: 1173029741}
+  - {fileID: 1301589093}
   m_Father: {fileID: 283547417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!23 &1642466272
@@ -94836,7 +94818,7 @@ MonoBehaviour:
   playerText: {fileID: 1380367181}
   poster: {fileID: 1642466270}
   wastePaper: {fileID: 3623527431094355110}
-  text: {fileID: 617071394}
+  text: {fileID: 1301589092}
   interactionIcon: {fileID: 1810311095}
   interactionDistance: 3
   mainCamera: {fileID: 4459864851239645680}
