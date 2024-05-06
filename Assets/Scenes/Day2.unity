@@ -42978,8 +42978,8 @@ GameObject:
   - component: {fileID: 743458700}
   - component: {fileID: 743458699}
   - component: {fileID: 743458698}
-  - component: {fileID: 743458701}
   - component: {fileID: 743458702}
+  - component: {fileID: 743458703}
   m_Layer: 0
   m_Name: PlateFood (1)
   m_TagString: Untagged
@@ -43076,21 +43076,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743458696}
   m_Mesh: {fileID: 3962392604961349191, guid: 610c01680284fa14ba5ec40bd8690a6f, type: 3}
---- !u!114 &743458701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 743458696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6278296544ae984595fc36531180053, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  eatingSounds:
-  - {fileID: 8300000, guid: f2163ddc0ec55ed42bf6475c5f076b10, type: 3}
-  - {fileID: 8300000, guid: d14312d4519f79d4ea134fa9e588b355, type: 3}
 --- !u!82 &743458702
 AudioSource:
   m_ObjectHideFlags: 0
@@ -43187,6 +43172,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &743458703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743458696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1878bbe1a4d6a4e4cbf3f24c47882d21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionIcon: {fileID: 397433583}
+  interactionDistance: 3
+  mainCamera: {fileID: 4459864851239645680}
+  eatingSounds:
+  - {fileID: 8300000, guid: f2163ddc0ec55ed42bf6475c5f076b10, type: 3}
+  - {fileID: 8300000, guid: d14312d4519f79d4ea134fa9e588b355, type: 3}
 --- !u!1 &747294956
 GameObject:
   m_ObjectHideFlags: 0
