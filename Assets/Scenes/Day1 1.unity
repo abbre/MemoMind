@@ -10375,7 +10375,7 @@ MonoBehaviour:
   interactionTrigger: {fileID: 0}
   subtitle: {fileID: 0}
   notYetFinishSubtitle: {fileID: 0}
-  doorCanOpenInitially: 0
+  doorCanOpenInitially: 1
 --- !u!82 &1392223684
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16637,7 +16637,7 @@ MonoBehaviour:
   interactionTrigger: {fileID: 0}
   subtitle: {fileID: 0}
   notYetFinishSubtitle: {fileID: 0}
-  doorCanOpenInitially: 0
+  doorCanOpenInitially: 1
 --- !u!82 &1991361863
 AudioSource:
   m_ObjectHideFlags: 0
