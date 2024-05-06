@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.5597484, g: 0, b: 0, a: 1}
+  m_FogColor: {r: 1, g: 1, b: 1, a: 1}
   m_FogMode: 3
   m_FogDensity: 0
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.745
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43369043, g: 0.32067576, b: 0.26007336, a: 0.745}
+  m_IndirectSpecularColor: {r: 0.42231196, g: 0.30535698, b: 0.2574147, a: 0.745}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetObject: {fileID: 2007743971}
-  delayTime: 14
+  delayTime: 10
 --- !u!4 &709845172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2774220344278030320, guid: db31f3fee5f88fa4a95468a67b4aac5d,
@@ -2038,8 +2038,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8a4c4cf7ac2224a8a51f8c8a3c643e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorChangeSpeed: 0.1
-  targetColor: {r: 0.6039216, g: 0, b: 0, a: 1}
+  colorChangeSpeed: 0.2
+  targetColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &2007743973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2052,8 +2052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b4bf6c4fb35f44b99a8d73c00dfe68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorChangeSpeed: 0.1
-  targetColor: {r: 0.6037736, g: 0, b: 0, a: 1}
+  colorChangeSpeed: 0.2
+  targetColor: {r: 1, g: 1, b: 1, a: 1}
   skyboxMaterial: {fileID: 2100000, guid: 0628ce624af4ba141af3a03b0d963cb2, type: 2}
   sceneSwitcher: {fileID: 691627380}
 --- !u!114 &2007743974
@@ -2068,7 +2068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6f2a1ba9f25b5498a96a145cf62225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  increaseSpeed: 0.1
+  increaseSpeed: 0.2
   sceneSwitcher: {fileID: 691627380}
 --- !u!4 &2007743975
 Transform:

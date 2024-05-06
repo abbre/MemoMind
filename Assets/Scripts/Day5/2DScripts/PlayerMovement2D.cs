@@ -135,7 +135,7 @@ public class PlayerMovement2D : MonoBehaviour
     {
         float startTime = Time.time;
         Color startColor = currentBgPics[currentPicIndex].GetComponent<SpriteRenderer>().color;
-        Color targetColor = new Color(1f, 1f, 1f, 0.04f);
+        Color targetColor = new Color(1f, 1f, 1f, 0.1f);
 
         while (Time.time - startTime < bgPicFadeInTime)
         {
