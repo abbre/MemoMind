@@ -13,6 +13,7 @@ TagManager:
   - Grandma
   - PictureTriggers
   - SceneTrigger
+  - Telephone
   layers:
   - Default
   - TransparentFX

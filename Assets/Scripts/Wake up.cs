@@ -14,7 +14,7 @@ public class Wakeup : MonoBehaviour
     private bool _cameraSwitched = false;
     [SerializeField] private AudioClip footStep1;
 
-
+    [SerializeField] private float fadeTime = 0.2f;
     private bool audioEnd = false;
     private AudioSource audioSource;
 
@@ -32,7 +32,7 @@ public class Wakeup : MonoBehaviour
         if ((wakeupSound != null && audioEnd) || wakeupSound == null)
         {
             Color currentColor = maskImage.color;
-            currentColor.a -= Time.deltaTime * 1f;
+            currentColor.a -= Time.deltaTime * fadeTime;
             maskImage.color = currentColor;
 
             if (maskImage.color.a <= 0)

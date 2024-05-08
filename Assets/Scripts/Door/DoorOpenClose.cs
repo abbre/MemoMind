@@ -21,7 +21,7 @@ public class DoorOpenClose : MonoBehaviour
 
     public Camera mainCamera;
     private bool _Eshowed = false;
-    [HideInInspector]public bool _isOpen = false;
+    [HideInInspector] public bool _isOpen = false;
     private Quaternion _targetRotation;
     private AudioSource _audioSource;
 
@@ -31,7 +31,7 @@ public class DoorOpenClose : MonoBehaviour
     [CanBeNull] public Subtitle subtitle;
     [CanBeNull] [SerializeField] private TextMeshProUGUI notYetFinishSubtitle;
     [SerializeField] private bool doorCanOpenInitially = false;
- 
+
 
     void Start()
     {
@@ -40,10 +40,9 @@ public class DoorOpenClose : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         if (!doorCanOpenInitially)
         {
-            if(notYetFinishSubtitle)
+            if (notYetFinishSubtitle)
                 notYetFinishSubtitle.enabled = false;
         }
-       
     }
 
 
@@ -65,8 +64,9 @@ public class DoorOpenClose : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    
-                    if (doorCanOpenInitially || (interactionTrigger != null && interactionTrigger.enableDoorInteraction) ||(subtitle != null &&subtitle.enableDoorInteraction))
+                    if (doorCanOpenInitially ||
+                        (interactionTrigger != null && interactionTrigger.enableDoorInteraction) ||
+                        (subtitle != null && subtitle.enableDoorInteraction))
                     {
                         if (!_isOpen)
                         {
@@ -102,8 +102,8 @@ public class DoorOpenClose : MonoBehaviour
 
 
         if (interactionTrigger != null && !interactionTrigger.enableDoorInteraction)
-            if(notYetFinishSubtitle)
-            notYetFinishSubtitle.enabled = _audioSource.isPlaying ? true : false;
+            if (notYetFinishSubtitle)
+                notYetFinishSubtitle.enabled = _audioSource.isPlaying ? true : false;
 
 
         if (_isOpen)

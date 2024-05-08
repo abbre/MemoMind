@@ -2323,6 +2323,7 @@ MonoBehaviour:
   PlayerText: {fileID: 569107950}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
+  hasInteracted: 0
   firstPersonController: {fileID: 4459864850986920430}
   needAudioWithoutSubtitle: 0
   banMovementDuringAudio: 0
@@ -4997,6 +4998,7 @@ MonoBehaviour:
   PlayerText: {fileID: 1198368614}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
+  hasInteracted: 0
   firstPersonController: {fileID: 4459864850986920430}
   needAudioWithoutSubtitle: 0
   banMovementDuringAudio: 0
@@ -6904,6 +6906,7 @@ MonoBehaviour:
   - Time to get some rest.
   subtitleText: {fileID: 965490664}
   audioSource: {fileID: 965490663}
+  currentClipIndex: 0
   allClipsPlayed: 0
   firstAudioPlayed: 0
   subtitlePlayAtBeginning: 0
@@ -10128,6 +10131,7 @@ MonoBehaviour:
   - Bye Grandpa!
   subtitleText: {fileID: 1387302094}
   audioSource: {fileID: 3264650260540345580}
+  currentClipIndex: 0
   allClipsPlayed: 0
   firstAudioPlayed: 0
   subtitlePlayAtBeginning: 1
@@ -13416,6 +13420,7 @@ MonoBehaviour:
   - 'Thank you, appreciate your help. '
   subtitleText: {fileID: 1592924501}
   audioSource: {fileID: 1592924499}
+  currentClipIndex: 0
   allClipsPlayed: 0
   firstAudioPlayed: 0
   subtitlePlayAtBeginning: 0
@@ -14848,6 +14853,7 @@ MonoBehaviour:
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
+  hasInteracted: 0
   firstPersonController: {fileID: 4459864850986920430}
   needAudioWithoutSubtitle: 0
   banMovementDuringAudio: 0
@@ -15928,6 +15934,7 @@ MonoBehaviour:
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 0}
   interactionDistance: 15
+  hasInteracted: 0
   firstPersonController: {fileID: 0}
   needAudioWithoutSubtitle: 0
   banMovementDuringAudio: 0
@@ -27692,7 +27699,7 @@ GameObject:
   - component: {fileID: 3469287836783267574}
   m_Layer: 0
   m_Name: Telephone
-  m_TagString: Untagged
+  m_TagString: Telephone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31093,6 +31100,7 @@ MonoBehaviour:
   PlayerText: {fileID: 1743758264}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
+  hasInteracted: 0
   firstPersonController: {fileID: 4459864850986920430}
   needAudioWithoutSubtitle: 0
   banMovementDuringAudio: 0
@@ -31128,9 +31136,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 15
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -31163,7 +31171,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -54042,6 +54050,7 @@ MonoBehaviour:
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 4459864849662493552}
   interactionDistance: 3
+  hasInteracted: 0
   firstPersonController: {fileID: 4459864850986920430}
   needAudioWithoutSubtitle: 0
   banMovementDuringAudio: 0

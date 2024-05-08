@@ -23,6 +23,8 @@ public class Sleep : MonoBehaviour
 
     public UnityEvent loadScene;
 
+    [SerializeField] private float fadeTime = 0.2f;
+
     
     void Start()
     {
@@ -76,7 +78,7 @@ public class Sleep : MonoBehaviour
             if (SleepCamera.enabled)
             {
                 Color currentColor = blackScreen.color;
-                currentColor.a += Time.deltaTime * 0.5f;
+                currentColor.a += Time.deltaTime * fadeTime;
                 blackScreen.color = currentColor;
                 if (currentColor.a >= 1.0f)
                 {

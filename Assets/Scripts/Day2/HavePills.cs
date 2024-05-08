@@ -35,7 +35,7 @@ public class HavePills : MonoBehaviour
     public AudioClip eat;
 
     public Image whiteScreenImage;
-    public float fadeDuration = 1.0f; // 渐变时间
+    public float fadeDuration = 3.0f; // 渐变时间
 
     private int currentAudioIndex = 0; // 当前音频索引
     private bool waiting = false;
@@ -167,7 +167,7 @@ public class HavePills : MonoBehaviour
         while (Time.time - startTime < duration)
         {
             float elapsedTime = Time.time - startTime;
-            float t = Mathf.Clamp01(elapsedTime / duration);
+            float t = Mathf.Clamp01(elapsedTime / fadeDuration);
             whiteScreenImage.color = Color.Lerp(startColor, targetColor, t);
             yield return null;
         }

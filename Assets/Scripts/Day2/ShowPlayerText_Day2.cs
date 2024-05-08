@@ -28,7 +28,6 @@ public class showPlayerText2 : MonoBehaviour
         interactionIcon.SetActive(false); // 初始隐藏交互图标
         mainCamera = GameManager.Camera;
         wastePaper.GetComponent<Rigidbody>().isKinematic = true;
-
         audioSource = wastePaper.GetComponent<AudioSource>();
     }
 
