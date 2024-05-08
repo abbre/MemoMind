@@ -35,7 +35,7 @@ public class InteractionTrigger : MonoBehaviour
     private Collider _collider;
 
     private bool _Eshowed = false;
-    private bool _hasInteracted = false;
+    public bool hasInteracted = false;
 
     private bool _eventTrigger = false;
 
@@ -98,7 +98,7 @@ public class InteractionTrigger : MonoBehaviour
             if (Physics.Raycast(ray, out hit, interactionDistance))
             {
                 // 如果射线击中了可以交互的物体
-                if (hit.collider == _collider && !_hasInteracted)
+                if (hit.collider == _collider && !hasInteracted)
                 {
                     if (!_Eshowed)
                     {
@@ -114,7 +114,7 @@ public class InteractionTrigger : MonoBehaviour
                             _EIcon.SetActive(false);
 
                         _Eshowed = true;
-                        _hasInteracted = true;
+                        hasInteracted = true;
 
                         if (triggerNextEventAfterPressE)
                         {

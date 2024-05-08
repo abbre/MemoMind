@@ -14,7 +14,7 @@ public class Subtitle : MonoBehaviour
     public TextMeshProUGUI subtitleText; // 用于显示字幕的 TextMeshProUGUI 对象
 
     [SerializeField] private AudioSource audioSource; // 用于播放音频的 AudioSource
-    private int currentClipIndex = 0; // 当前播放的音频索引
+    public int currentClipIndex = 0; // 当前播放的音频索引
     [HideInInspector] public bool allClipsPlayed = false; // 标记所有音频是否已经播放完毕
     [HideInInspector] public bool firstAudioPlayed = false;
 
@@ -107,7 +107,7 @@ public class Subtitle : MonoBehaviour
     }
 
     // 播放下一个音频和相应的字幕
-    void PlayNextClip()
+    public void PlayNextClip()
     {
         // 如果当前音频索引超出了音频数组的长度，则重新开始
         if (currentClipIndex >= audioClips.Length)
