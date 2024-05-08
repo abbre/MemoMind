@@ -1,26 +1,30 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
+using UnityEngine.Assertions.Must;
 
-public class ChangeEnvironmentColor : MonoBehaviour
+public class FadeImage : MonoBehaviour
 {
-    public float colorChangeSpeed = 0.1f; // 颜色改变的速度
-    public Color targetColor = Color.red; // 目标颜色
+    public SceneSwitcher SceneSwitcher;
+    public Image image;
+    public float fadeDuration = 10f; // 渐变持续时间
+    public float switchDuration = 15f;
+    void Start()
+    {
+        // 将图片的透明度设置为0
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+
+        // 开始透明度渐变动画
+        image.DOFade(1f, fadeDuration);
+    }
 
     private void Update()
     {
-        // 获取场景中所有的渲染器
-        Renderer[] renderers = FindObjectsOfType<Renderer>();
-
-        // 逐渐改变每个渲染器的颜色
-        foreach (Renderer renderer in renderers)
+        if (Time.time >= switchDuration)
         {
-            // 获取当前材质的颜色
-            Color currentColor = renderer.material.color;
-
-            // 使用Lerp函数逐渐将当前颜色改变为目标颜色
-            Color newColor = Color.Lerp(currentColor, targetColor, colorChangeSpeed * Time.deltaTime);
-
-            // 将新的颜色应用到材质
-            renderer.material.color = newColor;
+            SceneSwitcher.switchScene = true;
+            enabled = false;
         }
     }
 }
