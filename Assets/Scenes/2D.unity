@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   readyToTrigger: 0
-  moveSpeed: 25
+  moveSpeed: 12
   cameraSwitcher: {fileID: 909768539}
   EnableNextSprite:
     m_PersistentCalls:
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   readyToTrigger: 0
-  moveSpeed: 10
+  moveSpeed: 6
   cameraSwitcher: {fileID: 909768539}
   EnableNextSprite:
     m_PersistentCalls:
@@ -1845,7 +1845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   readyToTrigger: 0
-  moveSpeed: 25
+  moveSpeed: 10
   cameraSwitcher: {fileID: 909768539}
   EnableNextSprite:
     m_PersistentCalls:
@@ -2163,7 +2163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   readyToTrigger: 1
-  moveSpeed: 20
+  moveSpeed: 8
   cameraSwitcher: {fileID: 909768539}
   EnableNextSprite:
     m_PersistentCalls:
@@ -3677,7 +3677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   readyToTrigger: 1
-  moveSpeed: 25
+  moveSpeed: 10
   cameraSwitcher: {fileID: 909768539}
   EnableNextSprite:
     m_PersistentCalls:
@@ -5503,7 +5503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 446cce6d92c18d34dad3bb807b36948c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeOutTime: 5000
+  fadeOutTime: 3000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
