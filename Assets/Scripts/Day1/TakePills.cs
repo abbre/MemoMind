@@ -24,6 +24,10 @@ public class TakePills : MonoBehaviour
         stepAudio = step.GetComponent<AudioSource>();
     }
 
+    void Update()
+    {
+        Debug.Log(firstPersonController.playerCanMove);
+    }
     public void HoldPill()
     {
         firstPersonController.playerCanMove = false;

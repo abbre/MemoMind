@@ -189,6 +189,22 @@ public class InteractionTrigger : MonoBehaviour
 
                 if (needSubtitle)
                 {
+                    if (subtitle.allClipsPlayed)
+                    {
+                        
+                        subtitle.enabled = false;
+                        if (triggerNextEventAfterSubtitle && !_nextInteractionTriggered)
+                        {
+                            triggerNextInteraction?.Invoke();
+                            _nextInteractionTriggered = true;
+                        }
+                        /*if (gameObject.CompareTag("Telephone"))
+                        {
+                            needSubtitle = false;
+                            return;
+                        }*/
+                    }
+                    
                     if (!subtitle.allClipsPlayed && banMovementDuringSubtitle && subtitle.firstAudioPlayed)
                     {
                         firstPersonController.playerCanMove = false;
@@ -197,19 +213,12 @@ public class InteractionTrigger : MonoBehaviour
                     }
                     else
                     {
+                        print("InteractionTrigger gets into needSub at " + gameObject.name);
                         firstPersonController.playerCanMove = true;
                         stepAudio.enabled = true;
                     }
 
-                    if (subtitle.allClipsPlayed)
-                    {
-                        subtitle.enabled = false;
-                        if (triggerNextEventAfterSubtitle && !_nextInteractionTriggered)
-                        {
-                            triggerNextInteraction?.Invoke();
-                            _nextInteractionTriggered = true;
-                        }
-                    }
+                   
                 }
             }
         }
