@@ -8127,6 +8127,7 @@ MonoBehaviour:
   - I need to go now dad, take care of yourself.
   subtitleText: {fileID: 460827359}
   audioSource: {fileID: 367170246}
+  currentClipIndex: 0
   allClipsPlayed: 0
   firstAudioPlayed: 0
   subtitlePlayAtBeginning: 0
@@ -16742,7 +16743,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionTrigger: {fileID: 199609845}
   subtitle: {fileID: 762797703}
-  reminderTimeInterval: 4
+  reminderTimeInterval: 10
 --- !u!114 &762797703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16761,6 +16762,7 @@ MonoBehaviour:
   - "The do\u2019s and don\u2019ts\u2026\u2026 I remember seeing it somewhere yesterday."
   subtitleText: {fileID: 762797704}
   audioSource: {fileID: 762797701}
+  currentClipIndex: 0
   allClipsPlayed: 0
   firstAudioPlayed: 0
   subtitlePlayAtBeginning: 1

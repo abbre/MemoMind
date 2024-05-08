@@ -31,16 +31,30 @@ public class ReminderSubtitle : MonoBehaviour
 
             if (_timer >= reminderTimeInterval) //播放
             {
-                PlayReminderSubtitle();
+                StartCoroutine(PlayReminderSubtitle());
                 return;
             }
+        }
+
+        if (interactionTrigger.readyToTrigger && interactionTrigger.hasInteracted)
+        {
+            gameObject.SetActive(false);
         }
     }
 
 
+    private IEnumerator PlayReminderSubtitle()
+    {
+        _timer = 0f;
+        subtitle.PlayNextClip();
+        yield return new WaitForSeconds(5f);
+        subtitle.enabled = false;
+    }
+    /*
     private void PlayReminderSubtitle()
     {
         _timer = 0f;
         subtitle.PlayNextClip();
     }
+    */
 }
