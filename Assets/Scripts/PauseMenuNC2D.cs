@@ -1,13 +1,12 @@
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class PauseMenuNC : MonoBehaviour
+public class PauseMenuNC2D : MonoBehaviour
 {
     public GameObject pauseMenuUI;
     // [CanBeNull] public FirstPersonController firstPersonController;
    public static bool isPaused = false;
-
-    [SerializeField] private SceneAudioManager sceneAudioManager;
+   
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -23,7 +22,7 @@ public class PauseMenuNC : MonoBehaviour
     {
         isPaused = true;
         // firstPersonController.cameraCanMove = false;
-        sceneAudioManager.PauseAudio(false);
+       
         Time.timeScale = 0f; // 暂停游戏
         Cursor.lockState = CursorLockMode.None; // 解锁光标
         Cursor.visible = true; // 显示光标
@@ -34,7 +33,7 @@ public class PauseMenuNC : MonoBehaviour
     {
         // firstPersonController.cameraCanMove = true;
         isPaused = false;
-        sceneAudioManager.PauseAudio(true);
+       
         Time.timeScale = 1f; // 恢复游戏
         Cursor.lockState = CursorLockMode.Locked; // 锁定光标
         Cursor.visible = false; // 隐藏光标
