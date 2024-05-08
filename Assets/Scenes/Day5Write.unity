@@ -15775,6 +15775,7 @@ MonoBehaviour:
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 0}
   interactionDistance: 3
+  hasInteracted: 0
   firstPersonController: {fileID: 0}
   needAudioWithoutSubtitle: 0
   banMovementDuringAudio: 0
@@ -55955,6 +55956,7 @@ MonoBehaviour:
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 0}
   interactionDistance: 3
+  hasInteracted: 0
   firstPersonController: {fileID: 0}
   needAudioWithoutSubtitle: 0
   banMovementDuringAudio: 1
@@ -112522,6 +112524,7 @@ MonoBehaviour:
   PlayerText: {fileID: 0}
   mainCamera: {fileID: 0}
   interactionDistance: 15
+  hasInteracted: 0
   firstPersonController: {fileID: 0}
   needAudioWithoutSubtitle: 0
   banMovementDuringAudio: 0
