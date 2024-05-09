@@ -10,6 +10,9 @@ public class FadeImage : MonoBehaviour
     public Image image;
     public float fadeDuration = 10f; // 渐变持续时间
     public float switchDuration = 15f;
+
+    private float _timeCnt = 0;
+    private bool stateAlreadyChanged = false;
     void Start()
     {
         // 将图片的透明度设置为0
@@ -21,10 +24,15 @@ public class FadeImage : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time >= switchDuration)
+        if(!stateAlreadyChanged)
         {
-            SceneSwitcher.switchScene = true;
-            enabled = false;
+            _timeCnt += Time.deltaTime;
+            if(_timeCnt >= switchDuration)
+            {
+                stateAlreadyChanged = true;
+                SceneSwitcher.switchScene = true;
+                enabled = false;
+            }
         }
     }
 }
