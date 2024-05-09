@@ -83,143 +83,159 @@ public class InteractionTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (readyToTrigger)
+        if (!readyToTrigger) return;
+
+        if (!_onActivated)
         {
-            if (!_onActivated)
-            {
-                onActivate?.Invoke();
-                _onActivated = true;
-            }
+            onActivate?.Invoke();
+            _onActivated = true;
+        }
 
-            //Debug.Log("hit!");
-            RaycastHit hit;
-            Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)); // 从屏幕中心发出射线
+        //Debug.Log("hit!");
+        RaycastHit hit;
+        Ray ray = mainCamera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0)); // 从屏幕中心发出射线
 
-            if (Physics.Raycast(ray, out hit, interactionDistance))
+        if (Physics.Raycast(ray, out hit, interactionDistance))
+        {
+            // 如果射线击中了可以交互的物体
+            if (hit.collider == _collider && !hasInteracted)
             {
-                // 如果射线击中了可以交互的物体
-                if (hit.collider == _collider && !hasInteracted)
+                if (!_Eshowed)
                 {
-                    if (!_Eshowed)
+                    if (_EIcon)
+                        _EIcon.SetActive(true);
+                }
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    _eventTrigger = true;
+
+                    if (_EIcon)
+                        _EIcon.SetActive(false);
+
+                    _Eshowed = true;
+                    hasInteracted = true;
+
+                    if (triggerNextEventAfterPressE)
                     {
-                        if (_EIcon)
-                            _EIcon.SetActive(true);
+                        triggerNextInteraction?.Invoke();
                     }
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (enableDoorAfterThisInteraction) //如果该事件为门的触发事件
                     {
-                        _eventTrigger = true;
+                        enableDoorInteraction = true; //该事件过后可以开门
+                    }
+                }
+            }
+            else
+            {
+                // 如果射线没有击中任何物体，隐藏交互图标
+                if (_EIcon)
+                    _EIcon.SetActive(false);
 
-                        if (_EIcon)
-                            _EIcon.SetActive(false);
+                _Eshowed = false;
+            }
 
-                        _Eshowed = true;
-                        hasInteracted = true;
+            if (_eventTrigger) //TODO: replace this
+            {
+                mainInteraction?.Invoke();
+                if (AudioSourceToStop != null)
+                {
+                    AudioSourceToStop.clip = AudioToStop;
+                    AudioSourceToStop.Stop();
+                }
 
-                        if (triggerNextEventAfterPressE)
-                        {
-                            triggerNextInteraction?.Invoke();
-                        }
+                if (animator)
+                    animator.SetTrigger("ExampleName");
 
-                        if (enableDoorAfterThisInteraction) //如果该事件为门的触发事件
-                        {
-                            enableDoorInteraction = true; //该事件过后可以开门
-                        }
+                if (PlayerText)
+                    PlayerText.SetActive(true);
+
+                if (needAudioWithoutSubtitle)
+                {
+                    print("Start to play audio on " + gameObject.name);
+                    AudioSource.clip = AudioToPlay;
+                    AudioSource.Play();
+
+                    if (triggerNextEventAfterAudioWithoutSubtitle)
+                        StartCoroutine(WaitForSetOtherTrigger(AudioSource.clip.length));
+                }
+
+                if (needSubtitle)
+                    subtitle.ActivateSubtitle();
+
+
+                _eventTrigger = false;
+            }
+
+            //控制玩家在音频或者字幕时候的移动
+            if (needAudioWithoutSubtitle)
+            {
+                if (AudioSource.isPlaying && banMovementDuringAudio)
+                {
+                    if (banCameraRotationDuringSubtitle)
+                        firstPersonController.cameraCanMove = false;
+
+                    firstPersonController.playerCanMove = false;
+                    stepAudio.enabled = false;
+                }
+                else
+                {
+                    firstPersonController.cameraCanMove = true;
+                    firstPersonController.playerCanMove = true;
+                    stepAudio.enabled = true;
+                }
+            }
+
+            if (needSubtitle)
+            {
+                if (subtitle.allClipsPlayed)
+                {
+                    subtitle.enabled = false;
+                    if (triggerNextEventAfterSubtitle && !_nextInteractionTriggered)
+                    {
+                        triggerNextInteraction?.Invoke();
+                        _nextInteractionTriggered = true;
+                    }
+
+                    if (banMovementDuringSubtitle && subtitle.firstAudioPlayed)
+                    {
+                        firstPersonController.playerCanMove = true;
+                        stepAudio.enabled = true;
+                        enabled = false;
                     }
                 }
                 else
                 {
-                    // 如果射线没有击中任何物体，隐藏交互图标
-                    if (_EIcon)
-                        _EIcon.SetActive(false);
-
-                    _Eshowed = false;
-                }
-
-                if (_eventTrigger) //TODO: replace this
-                {
-                    mainInteraction?.Invoke();
-                    if (AudioSourceToStop != null)
+                    if (banMovementDuringSubtitle && subtitle.firstAudioPlayed)
                     {
-                        AudioSourceToStop.clip = AudioToStop;
-                        AudioSourceToStop.Stop();
-                    }
-
-                    if (animator)
-                        animator.SetTrigger("ExampleName");
-
-                    if (PlayerText)
-                        PlayerText.SetActive(true);
-
-                    if (needAudioWithoutSubtitle)
-                    {
-                        print("Start to play audio on " + gameObject.name);
-                        AudioSource.clip = AudioToPlay;
-                        AudioSource.Play();
-
-                        if (triggerNextEventAfterAudioWithoutSubtitle)
-                            StartCoroutine(WaitForSetOtherTrigger(AudioSource.clip.length));
-                    }
-
-                    if (needSubtitle)
-                        subtitle.ActivateSubtitle();
-
-
-                    _eventTrigger = false;
-                }
-
-                //控制玩家在音频或者字幕时候的移动
-                if (needAudioWithoutSubtitle)
-                {
-                    if (AudioSource.isPlaying && banMovementDuringAudio)
-                    {
-                        if (banCameraRotationDuringSubtitle)
-                            firstPersonController.cameraCanMove = false;
-
                         firstPersonController.playerCanMove = false;
                         stepAudio.enabled = false;
                     }
-                    else
-                    {
-                        firstPersonController.cameraCanMove = true;
-                        firstPersonController.playerCanMove = true;
-                        stepAudio.enabled = true;
-                    }
                 }
-
-                if (needSubtitle)
+                /*if (subtitle.allClipsPlayed)
                 {
-                    if (subtitle.allClipsPlayed)
+                    subtitle.enabled = false;
+                    if (triggerNextEventAfterSubtitle && !_nextInteractionTriggered)
                     {
-                        
-                        subtitle.enabled = false;
-                        if (triggerNextEventAfterSubtitle && !_nextInteractionTriggered)
-                        {
-                            triggerNextInteraction?.Invoke();
-                            _nextInteractionTriggered = true;
-                        }
-                        /*if (gameObject.CompareTag("Telephone"))
-                        {
-                            needSubtitle = false;
-                            return;
-                        }*/
+                        triggerNextInteraction?.Invoke();
+                        _nextInteractionTriggered = true;
                     }
-                    
-                    if (!subtitle.allClipsPlayed && banMovementDuringSubtitle && subtitle.firstAudioPlayed)
-                    {
-                        firstPersonController.playerCanMove = false;
-
-                        stepAudio.enabled = false;
-                    }
-                    else
-                    {
-                        print("InteractionTrigger gets into needSub at " + gameObject.name);
-                        firstPersonController.playerCanMove = true;
-                        stepAudio.enabled = true;
-                    }
-
-                   
                 }
+
+                if (!subtitle.allClipsPlayed && banMovementDuringSubtitle && subtitle.firstAudioPlayed)
+                {
+                    firstPersonController.playerCanMove = false;
+
+                    stepAudio.enabled = false;
+                }
+                else //
+                {
+                    print("InteractionTrigger gets into needSub at " + gameObject.name);
+                    firstPersonController.playerCanMove = true;
+                    stepAudio.enabled = true;
+                    enabled = false;
+                }*/
             }
         }
     }
