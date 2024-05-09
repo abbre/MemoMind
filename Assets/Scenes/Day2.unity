@@ -95653,7 +95653,7 @@ MonoBehaviour:
   interactionTrigger: {fileID: 0}
   subtitle: {fileID: 0}
   notYetFinishSubtitle: {fileID: 0}
-  doorCanOpenInitially: 0
+  doorCanOpenInitially: 1
 --- !u!65 &1644362039
 BoxCollider:
   m_ObjectHideFlags: 0

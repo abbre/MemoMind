@@ -18,6 +18,8 @@ public class HoldThenEat : MonoBehaviour
 
     public UnityEvent TriggerWhiteScreen;
 
+    public AudioSource stepAudio;
+
 
     public void TransferPositionSuddenly()
     {
@@ -25,7 +27,7 @@ public class HoldThenEat : MonoBehaviour
         transform.rotation = targetPos.rotation;
         firstPersonController.playerCanMove = false;
         firstPersonController.cameraCanMove = false;
-
+        stepAudio.enabled = false;
         if (_hasEatMovement)
         {
             StartCoroutine(EatMovement());
