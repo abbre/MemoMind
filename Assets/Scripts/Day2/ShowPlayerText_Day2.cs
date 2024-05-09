@@ -60,6 +60,7 @@ public class showPlayerText2 : MonoBehaviour
                         poster.GetComponent<MeshRenderer>().enabled = false;
                         text.SetActive(false);
                         interactionIcon.SetActive(false);
+                        
                         wastePaper.GetComponent<MeshRenderer>().enabled = true;
 
                         audioSource.enabled = true;

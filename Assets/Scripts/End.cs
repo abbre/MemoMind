@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Events;
 
 public class ScreenEffects : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class ScreenEffects : MonoBehaviour
 
     private bool isFading = false; // 是否正在变白
     private float alpha = 0f; // 初始透明度
+
+    private bool _lastImgFaded = false;
+    public UnityEvent loadScene;
 
     private void Start()
     {
@@ -52,6 +56,11 @@ public class ScreenEffects : MonoBehaviour
 
         alpha = 0f;
         isFading = false;
+
+        if (!_lastImgFaded)
+            loadScene.Invoke();
+
+        _lastImgFaded = true;
     }
 
     private IEnumerator DisplayPhoto(Sprite photo)
