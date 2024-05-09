@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Time.timeScale = 1f;
         Camera = _camera;
     }
 
