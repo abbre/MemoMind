@@ -2597,7 +2597,7 @@ MonoBehaviour:
   SceneSwitcher: {fileID: 691627380}
   image: {fileID: 739494827}
   fadeDuration: 5
-  switchDuration: 8
+  switchDuration: 5
 --- !u!114 &2007743973
 MonoBehaviour:
   m_ObjectHideFlags: 0
