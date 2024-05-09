@@ -8,9 +8,9 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     public static Camera Camera;
-    public FirstPersonController firstPersonController;
+    [CanBeNull] public FirstPersonController firstPersonController;
     [CanBeNull] [SerializeField] private AudioSource stepAudio;
-
+    
 
     private void OnEnable()
     {
