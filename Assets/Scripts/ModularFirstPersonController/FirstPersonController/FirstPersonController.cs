@@ -562,7 +562,7 @@ public class FirstPersonController : MonoBehaviour
     public override void OnInspectorGUI()
     {
         SerFPC.Update();
-
+        fpc.playerCanMove = EditorGUILayout.ToggleLeft(new GUIContent("Player Can Move"), fpc.playerCanMove);
         EditorGUILayout.Space();
         GUILayout.Label("Modular First Person Controller", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Bold, fontSize = 16 });
         GUILayout.Label("By Jess Case", new GUIStyle(GUI.skin.label) { alignment = TextAnchor.MiddleCenter, fontStyle = FontStyle.Normal, fontSize = 12 });

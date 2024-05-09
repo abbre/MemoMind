@@ -63568,6 +63568,11 @@ PrefabInstance:
       propertyPath: enableZoom
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3721913866778273931, guid: cd5fe28ca17033e47a8824cd70e9d6d1,
+        type: 3}
+      propertyPath: invertCamera
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5753639968960039633, guid: cd5fe28ca17033e47a8824cd70e9d6d1,
         type: 3}
       propertyPath: m_StaticEditorFlags
