@@ -45,18 +45,7 @@ public class ScreenEffects : MonoBehaviour
             yield return DisplayPhoto(photo);
             yield return new WaitForSeconds(photoDisplayTime);
         }
-
-        // 播放完毕后，开始渐出
-        while (alpha > 0f)
-        {
-            alpha -= fadeSpeed * Time.deltaTime;
-            whiteImage.color = new Color(1f, 1f, 1f, alpha);
-            yield return null;
-        }
-
-        alpha = 0f;
-        isFading = false;
-
+         
         if (!_lastImgFaded)
             loadScene.Invoke();
 

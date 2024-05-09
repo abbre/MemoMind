@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public string targetSceneName; // 目标场景的名称
+    public string targetSceneName; 
+    // 目标场景的名称
 
     // 在其他脚本中将其设置为真以触发场景切换
     public bool switchScene = false;

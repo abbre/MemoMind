@@ -213,29 +213,7 @@ public class InteractionTrigger : MonoBehaviour
                         stepAudio.enabled = false;
                     }
                 }
-                /*if (subtitle.allClipsPlayed)
-                {
-                    subtitle.enabled = false;
-                    if (triggerNextEventAfterSubtitle && !_nextInteractionTriggered)
-                    {
-                        triggerNextInteraction?.Invoke();
-                        _nextInteractionTriggered = true;
-                    }
-                }
-
-                if (!subtitle.allClipsPlayed && banMovementDuringSubtitle && subtitle.firstAudioPlayed)
-                {
-                    firstPersonController.playerCanMove = false;
-
-                    stepAudio.enabled = false;
-                }
-                else //
-                {
-                    print("InteractionTrigger gets into needSub at " + gameObject.name);
-                    firstPersonController.playerCanMove = true;
-                    stepAudio.enabled = true;
-                    enabled = false;
-                }*/
+              
             }
         }
     }

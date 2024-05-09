@@ -14047,6 +14047,11 @@ PrefabInstance:
       propertyPath: firstPersonController
       value: 
       objectReference: {fileID: 4459864850986920430}
+    - target: {fileID: 5041140084175746065, guid: 4e54033696c45f344b966b5ea713c7bf,
+        type: 3}
+      propertyPath: targetSceneName
+      value: Opening3D
+      objectReference: {fileID: 0}
     - target: {fileID: 7896598857599256688, guid: 4e54033696c45f344b966b5ea713c7bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -17021,6 +17026,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 4459864849662493552}
+  firstPersonController: {fileID: 0}
+  stepAudio: {fileID: 0}
 --- !u!1 &2046071339
 GameObject:
   m_ObjectHideFlags: 0
@@ -79250,6 +79257,7 @@ MonoBehaviour:
           m_StringArgument: Day2
           m_BoolArgument: 0
         m_CallState: 2
+  fadeTime: 0.2
 --- !u!23 &5906081157396698204
 MeshRenderer:
   m_ObjectHideFlags: 0

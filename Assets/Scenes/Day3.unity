@@ -6784,6 +6784,11 @@ PrefabInstance:
       propertyPath: firstPersonController
       value: 
       objectReference: {fileID: 1915737981}
+    - target: {fileID: 5041140084175746065, guid: 4e54033696c45f344b966b5ea713c7bf,
+        type: 3}
+      propertyPath: targetSceneName
+      value: Opening3D
+      objectReference: {fileID: 0}
     - target: {fileID: 7896598857599256688, guid: 4e54033696c45f344b966b5ea713c7bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19634,6 +19639,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1152798437}
+  firstPersonController: {fileID: 0}
+  stepAudio: {fileID: 0}
 --- !u!4 &830936788
 Transform:
   m_ObjectHideFlags: 0
@@ -46346,6 +46353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 1152798437}
+  firstPersonController: {fileID: 0}
+  stepAudio: {fileID: 0}
 --- !u!1 &2022866826
 GameObject:
   m_ObjectHideFlags: 0
@@ -48769,6 +48778,7 @@ MonoBehaviour:
   wakeupSound: {fileID: 0}
   stepSound: {fileID: 1440403452}
   footStep1: {fileID: 8300000, guid: 51b106f4d24f4da438515b5dfc37c577, type: 3}
+  fadeTime: 0.2
 --- !u!1 &2101575019
 GameObject:
   m_ObjectHideFlags: 0
@@ -61736,6 +61746,7 @@ MonoBehaviour:
           m_StringArgument: Day4_Black
           m_BoolArgument: 0
         m_CallState: 2
+  fadeTime: 0.2
 --- !u!33 &5926724059333216996
 MeshFilter:
   m_ObjectHideFlags: 0

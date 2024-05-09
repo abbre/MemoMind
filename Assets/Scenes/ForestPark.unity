@@ -147,6 +147,11 @@ PrefabInstance:
       propertyPath: pauseMenuUI
       value: 
       objectReference: {fileID: 767115898}
+    - target: {fileID: 5041140084175746065, guid: 4e54033696c45f344b966b5ea713c7bf,
+        type: 3}
+      propertyPath: targetSceneName
+      value: Opening3D
+      objectReference: {fileID: 0}
     - target: {fileID: 7896598857599256688, guid: 4e54033696c45f344b966b5ea713c7bf,
         type: 3}
       propertyPath: m_LocalPosition.x
